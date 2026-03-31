@@ -3,875 +3,654 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name — Creative</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <title>Dr. M. Rajakrishnan — Academic Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream: #f5f0e8;
-      --ink: #1a1714;
-      --muted: #7a7570;
-      --accent: #c8a97e;
-      --rule: #d8d0c4;
+      --cream: #f6f1e9; --ink: #181512; --muted: #7c756e;
+      --accent: #8b6914; --accent-light: #c8a252;
+      --rule: #ddd6ca; --dark: #1c1813;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    /* ── NOISE TEXTURE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
+    body { background: var(--cream); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+    body::after {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9000; opacity: 0.4;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
     }
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.6rem 3rem;
-      background: rgba(245, 240, 232, 0.88);
-      backdrop-filter: blur(12px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 3.5rem;
+      background: rgba(246,241,233,0.92); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--rule);
     }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 300;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted);
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover { color: var(--ink); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; letter-spacing: 0.04em; text-decoration: none; color: var(--ink); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color 0.3s; }
+    .nav-links a:hover { color: var(--accent); }
 
     /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 80px;
-    }
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 56% 44%; padding-top: 72px; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 3.5rem; animation: riseUp 1s ease both; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 1rem; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+    .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.08; }
+    .hero-title em { font-style: italic; color: var(--muted); }
+    .hero-dept { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; font-weight: 300; color: var(--muted); margin-top: 1.2rem; line-height: 1.65; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+    .tag { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.38rem 0.9rem; border: 1px solid var(--rule); color: var(--muted); }
+    .hero-ids { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-top: 2.2rem; }
+    .id-chip { display: flex; align-items: center; gap: 0.5rem; font-size: 0.63rem; letter-spacing: 0.06em; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .id-chip:hover { color: var(--accent); }
+    .id-dot { width: 6px; height: 6px; background: var(--accent-light); border-radius: 50%; flex-shrink: 0; }
+    .hero-cta { display: flex; gap: 1.2rem; margin-top: 2.8rem; flex-wrap: wrap; }
+    .btn-solid { padding: 0.8rem 2rem; background: var(--ink); color: var(--cream); font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: background 0.3s; }
+    .btn-solid:hover { background: var(--accent); }
+    .btn-outline { padding: 0.8rem 2rem; border: 1px solid var(--rule); color: var(--muted); font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: border-color 0.3s, color 0.3s; }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5rem 3rem 5rem 3rem;
-      animation: fadeUp 1s ease both;
-    }
+    .hero-right { background: var(--dark); position: relative; overflow: hidden; animation: fadeIn 1.4s ease both; }
+    .hero-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Cormorant Garamond', serif; font-size: 8.5rem; font-weight: 300; font-style: italic; color: rgba(200,162,82,0.045); white-space: nowrap; pointer-events: none; user-select: none; }
+    .hero-right-inner { position: absolute; inset: 2.5rem; border: 1px solid rgba(200,162,82,0.18); display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem; }
+    .hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(200,162,82,0.1); }
+    .hero-stat { background: var(--dark); padding: 1.5rem; border-top: 1px solid rgba(200,162,82,0.1); }
+    .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: var(--accent-light); line-height: 1; }
+    .hero-stat-label { font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(200,162,82,0.48); margin-top: 0.35rem; }
 
-    .hero-eyebrow {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 6vw, 6rem);
-      font-weight: 300;
-      line-height: 1.05;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-name em {
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    .hero-tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 1.5vw, 1.3rem);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--muted);
-      margin-top: 1.5rem;
-      max-width: 30ch;
-      line-height: 1.7;
-    }
-
-    .hero-cta {
-      margin-top: 3rem;
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.85rem 2.2rem;
-      background: var(--ink);
-      color: var(--cream);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-
-    .btn-ghost {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted);
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 2px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-
-    .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
-
-    .hero-image {
-      position: relative;
-      overflow: hidden;
-      animation: fadeIn 1.4s ease both;
-    }
-
-    .hero-image-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #e8dfd0 0%, #d4c9b8 50%, #c8bca8 100%);
-    }
-
-    .hero-image-decoration {
-      position: absolute;
-      inset: 2rem;
-      border: 1px solid rgba(200, 169, 126, 0.4);
-    }
-
-    .hero-image-label {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 2.5rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      writing-mode: horizontal-tb;
-    }
-
-    .hero-number {
-      position: absolute;
-      top: 2.5rem;
-      right: 2.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 8rem;
-      font-weight: 300;
-      color: rgba(200, 169, 126, 0.15);
-      line-height: 1;
-      user-select: none;
-    }
-
-    /* ── SECTION COMMON ── */
-    section {
-      padding: 7rem 3rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-
-    .section-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--accent);
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-    }
-
-    .section-title em { font-style: italic; }
-
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background: var(--rule);
-      margin-left: 1rem;
-    }
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 3.5rem; border-top: 1px solid var(--rule); }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-header { display: flex; align-items: baseline; gap: 1.2rem; margin-bottom: 3.5rem; }
+    .sec-num { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 300; color: var(--accent); }
+    .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300; }
+    .sec-title em { font-style: italic; }
+    .sec-rule { flex: 1; height: 1px; background: var(--rule); margin-left: 0.8rem; }
 
     /* ── ABOUT ── */
-    #about {
-      max-width: 1200px;
-      margin: 0 auto;
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+    .about-body p { font-family: 'Cormorant Garamond', serif; font-size: 1.22rem; font-weight: 300; line-height: 1.88; color: var(--ink); margin-bottom: 1.4rem; }
+    .about-body p:first-child::first-letter { font-size: 3rem; font-weight: 600; float: left; line-height: 0.82; margin-right: 0.12em; color: var(--accent); }
+    .about-aside { display: flex; flex-direction: column; gap: 1.5rem; }
+    .aside-block { padding: 1.1rem 1.4rem; border-left: 2px solid var(--accent-light); }
+    .aside-label { font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .aside-val { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; line-height: 1.55; }
+    .qualif-list { list-style: none; margin-top: 2.2rem; }
+    .qualif-list li { display: flex; justify-content: space-between; align-items: baseline; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); font-size: 0.8rem; color: var(--muted); gap: 1rem; }
+    .qualif-list li strong { font-family: 'Cormorant Garamond', serif; font-size: 0.98rem; font-weight: 400; color: var(--ink); }
+    .qualif-year { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); white-space: nowrap; }
+
+    /* ── PUBLICATIONS (dark panel) ── */
+    #publications { background: var(--dark); color: var(--cream); padding-left: 3.5rem; padding-right: 3.5rem; }
+    #publications .sec-title { color: var(--cream); }
+    #publications .sec-rule { background: rgba(246,241,233,0.1); }
+
+    .pub-filter { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .pub-filter-btn {
+      font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border: 1px solid rgba(200,162,82,0.25);
+      color: rgba(200,162,82,0.5); background: transparent; cursor: pointer;
+      transition: all 0.25s;
     }
+    .pub-filter-btn.active, .pub-filter-btn:hover { border-color: var(--accent-light); color: var(--accent-light); background: rgba(200,162,82,0.07); }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
+    .pub-list { display: flex; flex-direction: column; gap: 1px; background: rgba(200,162,82,0.08); }
+    .pub-item {
+      background: var(--dark); padding: 1.8rem 2.2rem;
+      display: grid; grid-template-columns: 44px 1fr auto;
+      gap: 1.4rem; align-items: start; transition: background 0.3s;
+      cursor: default;
     }
+    .pub-item:hover { background: #231e18; }
+    .pub-item[data-hidden="true"] { display: none; }
+    .pub-idx { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: rgba(200,162,82,0.28); line-height: 1; padding-top: 0.15rem; }
+    .pub-title { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 400; color: var(--cream); line-height: 1.4; margin-bottom: 0.35rem; }
+    .pub-meta { font-size: 0.7rem; color: rgba(246,241,233,0.42); line-height: 1.65; }
+    .pub-badge { font-size: 0.53rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.28rem 0.75rem; border: 1px solid rgba(200,162,82,0.28); color: var(--accent-light); white-space: nowrap; align-self: start; margin-top: 0.2rem; }
+    .pub-more-note { text-align: center; padding: 2rem; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: rgba(200,162,82,0.45); }
 
-    .about-body p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .about-body p:first-child::first-letter {
-      font-size: 3.5rem;
-      font-weight: 600;
-      float: left;
-      line-height: 0.8;
-      margin-right: 0.1em;
-      color: var(--accent);
-    }
-
-    .about-aside {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding-top: 0.5rem;
-    }
-
-    .aside-item {
-      border-left: 2px solid var(--accent);
-      padding-left: 1.5rem;
-    }
-
-    .aside-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .aside-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 300;
-    }
-
-    /* ── PROJECTS ── */
-    #projects {
-      background: var(--ink);
-      color: var(--cream);
-      max-width: 100%;
-      padding-left: max(3rem, calc((100vw - 1200px) / 2));
-      padding-right: max(3rem, calc((100vw - 1200px) / 2));
-    }
-
-    #projects .section-title { color: var(--cream); }
-    #projects .section-num { color: var(--accent); }
-    #projects .section-rule { background: rgba(245,240,232,0.15); }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(245,240,232,0.1);
-    }
-
-    .project-card {
-      background: var(--ink);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: background 0.4s;
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(200,169,126,0.08) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .project-card:hover { background: #221e1b; }
-    .project-card:hover::before { opacity: 1; }
-
-    .project-index {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: rgba(200, 169, 126, 0.2);
-      line-height: 1;
-      margin-bottom: 1.5rem;
-      transition: color 0.4s;
-    }
-
-    .project-card:hover .project-index { color: rgba(200, 169, 126, 0.5); }
-
-    .project-tag {
-      font-size: 0.58rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-    }
-
-    .project-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 300;
-      color: var(--cream);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .project-desc {
-      font-size: 0.8rem;
-      line-height: 1.8;
-      color: rgba(245, 240, 232, 0.5);
-    }
-
-    .project-arrow {
-      margin-top: 2rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-
-    .project-card:hover .project-arrow { opacity: 1; transform: translateY(0); }
+    /* ── RESEARCH INTERESTS ── */
+    .research-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); }
+    .research-card { background: var(--cream); padding: 2.2rem; transition: background 0.3s; }
+    .research-card:hover { background: #ede6d8; }
+    .research-icon { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: rgba(139,105,20,0.14); line-height: 1; margin-bottom: 1.1rem; transition: color 0.3s; }
+    .research-card:hover .research-icon { color: rgba(139,105,20,0.32); }
+    .research-area { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.45rem; }
+    .research-name { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; line-height: 1.3; margin-bottom: 0.75rem; }
+    .research-desc { font-size: 0.77rem; color: var(--muted); line-height: 1.82; }
 
     /* ── SKILLS ── */
-    #skills {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .skill-group-title { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.4rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); }
+    .skill-row { display: flex; align-items: center; justify-content: space-between; padding: 0.82rem 0; border-bottom: 1px solid var(--rule); }
+    .skill-name { font-family: 'Cormorant Garamond', serif; font-size: 1.03rem; font-weight: 400; }
+    .skill-bar { width: 88px; height: 1px; background: var(--rule); position: relative; }
+    .skill-fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--accent-light); transition: width 1.2s ease; }
 
-    .skills-layout {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
-    }
-
-    .skills-intro {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .skills-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .skill-group-title {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
-
-    .skill-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .skill-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-weight: 300;
-    }
-
-    .skill-bar {
-      width: 80px;
-      height: 1px;
-      background: var(--rule);
-      position: relative;
-    }
-
-    .skill-fill {
-      position: absolute;
-      left: 0; top: 0;
-      height: 100%;
-      background: var(--accent);
-      transition: width 1s ease;
-    }
+    /* ── AWARDS ── */
+    #awards { background: #f0ebe0; }
+    .awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+    .award-card { padding: 1.8rem 2rem; border: 1px solid var(--rule); background: var(--cream); position: relative; overflow: hidden; transition: box-shadow 0.3s; }
+    .award-card:hover { box-shadow: 0 4px 24px rgba(139,105,20,0.08); }
+    .award-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent-light); }
+    .award-year { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.45rem; }
+    .award-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; line-height: 1.3; }
+    .award-body { font-size: 0.76rem; color: var(--muted); line-height: 1.75; }
 
     /* ── CONTACT ── */
-    #contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      padding: 0;
-      border-top: 1px solid var(--rule);
-    }
+    #contact { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+    .contact-l { padding: 6rem 4rem 6rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .contact-hl { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4.5vw,3.8rem); font-weight: 300; line-height: 1.12; margin-bottom: 1.4rem; }
+    .contact-hl em { font-style: italic; color: var(--muted); }
+    .contact-sub { font-size: 0.81rem; color: var(--muted); line-height: 1.85; margin-bottom: 2.5rem; max-width: 36ch; }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .c-label { font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); min-width: 92px; padding-top: 2px; }
+    .c-val { font-family: 'Cormorant Garamond', serif; font-size: 0.98rem; font-weight: 300; line-height: 1.55; }
+    .c-val a { color: var(--ink); text-decoration: none; transition: color 0.3s; }
+    .c-val a:hover { color: var(--accent); }
+    .contact-r { background: var(--dark); padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+    .contact-r::before { content: 'connect'; position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 9rem; font-style: italic; font-weight: 300; color: rgba(200,162,82,0.05); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; }
+    .contact-form { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 1.4rem; }
+    .f-field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .f-label { font-size: 0.57rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246,241,233,0.32); }
+    .f-input, .f-textarea { background: transparent; border: none; border-bottom: 1px solid rgba(246,241,233,0.12); padding: 0.65rem 0; color: var(--cream); font-family: 'Jost', sans-serif; font-size: 0.87rem; font-weight: 300; outline: none; transition: border-color 0.3s; }
+    .f-input:focus, .f-textarea:focus { border-color: var(--accent-light); }
+    .f-textarea { resize: none; height: 72px; }
+    .f-btn { align-self: flex-start; margin-top: 0.4rem; padding: 0.8rem 2.2rem; background: var(--accent-light); color: var(--dark); border: none; font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
+    .f-btn:hover { background: #d4b060; }
 
-    .contact-left {
-      padding: 7rem 4rem 7rem 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .contact-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 2rem;
-    }
-
-    .contact-headline em { font-style: italic; color: var(--muted); }
-
-    .contact-sub {
-      font-size: 0.85rem;
-      line-height: 1.8;
-      color: var(--muted);
-      max-width: 36ch;
-      margin-bottom: 3rem;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      text-decoration: none;
-      color: var(--ink);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      transition: color 0.3s;
-    }
-
-    .contact-link:hover { color: var(--accent); }
-
-    .contact-link-icon {
-      width: 32px;
-      height: 1px;
-      background: currentColor;
-      transition: width 0.3s;
-    }
-
-    .contact-link:hover .contact-link-icon { width: 48px; }
-
-    .contact-right {
-      background: #1a1714;
-      padding: 7rem 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-right::before {
-      content: 'hello';
-      position: absolute;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12rem;
-      font-weight: 300;
-      font-style: italic;
-      color: rgba(200, 169, 126, 0.06);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-      pointer-events: none;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(245, 240, 232, 0.4);
-    }
-
-    .form-input,
-    .form-textarea {
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(245, 240, 232, 0.15);
-      padding: 0.7rem 0;
-      color: var(--cream);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 300;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus { border-color: var(--accent); }
-
-    .form-textarea { resize: none; height: 80px; }
-
-    .form-submit {
-      align-self: flex-start;
-      margin-top: 0.5rem;
-      padding: 0.85rem 2.5rem;
-      background: var(--accent);
-      color: var(--ink);
-      border: none;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .form-submit:hover { background: #d4b98a; transform: translateY(-1px); }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 2rem 3rem;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-copy {
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-    }
-
-    .footer-back {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted);
-      transition: color 0.3s;
-    }
-
-    .footer-back:hover { color: var(--ink); }
+    footer { padding: 1.5rem 3.5rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.62rem; letter-spacing: 0.07em; color: var(--muted); }
+    .footer-top { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color 0.3s; }
+    .footer-top:hover { color: var(--accent); }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    @keyframes riseUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-image { display: none; }
-      .about-grid, .skills-layout, .skills-columns { grid-template-columns: 1fr; gap: 2.5rem; }
-      .projects-grid { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-grid, .skills-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .research-grid { grid-template-columns: 1fr 1fr; }
+      .awards-grid { grid-template-columns: 1fr 1fr; }
       #contact { grid-template-columns: 1fr; }
-      .contact-right { padding: 4rem 3rem; }
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
-      section { padding: 5rem 1.5rem; }
+      section { padding: 4.5rem 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .research-grid, .awards-grid { grid-template-columns: 1fr; }
+      .pub-item { grid-template-columns: 36px 1fr; }
+      .pub-badge { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">Your Name</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Dr. M. <span>Rajakrishnan</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Creative Portfolio — 2026</p>
-      <h1 class="hero-name">Your <em>Name</em></h1>
-      <p class="hero-tagline">Crafting stories and experiences that linger long after the page is turned.</p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View Work</a>
-        <a href="#contact" class="btn-ghost">Get in Touch</a>
-      </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Academic Profile · Commerce &amp; Management</p>
+    <h1 class="hero-title">Dr. M.<br><em>Rajakrishnan</em></h1>
+    <p class="hero-dept">Assistant Professor — Department of Commerce (E-Commerce)<br>PSG College of Arts &amp; Science, Coimbatore</p>
+    <div class="hero-tags">
+      <span class="tag">Marketing</span>
+      <span class="tag">Finance</span>
+      <span class="tag">Taxation</span>
+      <span class="tag">E-Commerce</span>
+      <span class="tag">Digital Banking</span>
+      <span class="tag">AI in Business</span>
+      <span class="tag">Sustainability</span>
     </div>
-    <div class="hero-image">
-      <div class="hero-image-bg"></div>
-      <div class="hero-image-decoration"></div>
-      <span class="hero-number">01</span>
-      <span class="hero-image-label">Portfolio — Creative</span>
+    <div class="hero-ids">
+      <a href="https://orcid.org/0000-0002-5293-4521" target="_blank" class="id-chip"><span class="id-dot"></span>ORCID: 0000-0002-5293-4521</a>
+      <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank" class="id-chip"><span class="id-dot"></span>Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank" class="id-chip"><span class="id-dot"></span>ResearchGate</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=58574951200" target="_blank" class="id-chip"><span class="id-dot"></span>Scopus: 58574951200</a>
+    </div>
+    <div class="hero-cta">
+      <a href="#publications" class="btn-solid">View Publications</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
     </div>
   </div>
+  <div class="hero-right">
+    <span class="hero-bg-text">Commerce</span>
+    <div class="hero-right-inner">
+      <div class="hero-stat-grid">
+        <div class="hero-stat"><div class="hero-stat-num">40+</div><div class="hero-stat-label">Publications</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">12+</div><div class="hero-stat-label">Citations</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">8+</div><div class="hero-stat-label">Yrs Teaching</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">Conferences</div></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- ABOUT -->
-  <section id="about">
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-num">01</span>
-      <h2 class="section-title">About <em>Me</em></h2>
-      <div class="section-rule"></div>
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">About <em>Me</em></h2>
+      <div class="sec-rule"></div>
     </div>
     <div class="about-grid">
       <div class="about-body reveal">
-        <p>I am a creative professional drawn to the spaces where ideas meet form. My work is guided by curiosity, a deep love of craft, and the belief that every project deserves a singular point of view.</p>
-        <p>With a background in storytelling and visual culture, I approach each collaboration as an opportunity to build something that endures — work that resonates on an emotional level and stands apart.</p>
+        <p>Dr. M. Rajakrishnan is an Assistant Professor in the Department of Commerce at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions. With over eight years of teaching and research experience, he brings a rigorous yet engaging approach to Commerce, Finance, and Marketing.</p>
+        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability — areas at the intersection of contemporary economic challenges and scholarly inquiry. He has presented his work at numerous ICSSR-sponsored national and international conferences and serves as an active resource person and session chair across academic platforms.</p>
+        <p>Dr. Rajakrishnan is a prolific academic author with publications in Scopus, Web of Science, and indexed peer-reviewed journals, a chapter contributor to Springer books, and a working paper author on SSRN. He holds qualifications spanning M.Com (CA), M.Phil, MBA, PGDIB, UGC-NET, TNSET, and a PGDIPR in Intellectual Property Law from IGNOU.</p>
+        <ul class="qualif-list reveal">
+          <li><strong>MBA — HRM &amp; Finance</strong><span class="qualif-year">Bharathiar University · 2016</span></li>
+          <li><strong>M.Phil — Commerce</strong><span class="qualif-year">Hindusthan College · 2014</span></li>
+          <li><strong>M.Com (Computer Applications)</strong><span class="qualif-year">Hindusthan College · 2013</span></li>
+          <li><strong>PGDIPR — Intellectual Property Law</strong><span class="qualif-year">IGNOU · 2023</span></li>
+          <li><strong>UGC-NET — Commerce</strong><span class="qualif-year">UGC · 2018</span></li>
+          <li><strong>TNSET — Commerce</strong><span class="qualif-year">Tamil Nadu SEC · 2016</span></li>
+        </ul>
       </div>
       <div class="about-aside reveal">
-        <div class="aside-item">
-          <p class="aside-label">Based In</p>
-          <p class="aside-value">Your City, Country</p>
+        <div class="aside-block">
+          <p class="aside-label">Institution</p>
+          <p class="aside-val">PSG College of Arts &amp; Science, Coimbatore – 641 014</p>
         </div>
-        <div class="aside-item">
-          <p class="aside-label">Discipline</p>
-          <p class="aside-value">Creative Direction, Writing, Art</p>
+        <div class="aside-block">
+          <p class="aside-label">Designation</p>
+          <p class="aside-val">Assistant Professor, Dept. of Commerce (E-Commerce)</p>
         </div>
-        <div class="aside-item">
-          <p class="aside-label">Available For</p>
-          <p class="aside-value">Freelance & Collaborations</p>
+        <div class="aside-block">
+          <p class="aside-label">Specialisation</p>
+          <p class="aside-val">Marketing &amp; Finance · Taxation · Digital Economy</p>
         </div>
-        <div class="aside-item">
+        <div class="aside-block">
+          <p class="aside-label">Academic IDs</p>
+          <p class="aside-val">Scopus: 58574951200<br>ResearcherID: Y-5004-2018<br>ORCID: 0000-0002-5293-4521</p>
+        </div>
+        <div class="aside-block">
           <p class="aside-label">Experience</p>
-          <p class="aside-value">5+ Years</p>
+          <p class="aside-val">8+ Years Teaching · 1 Year Industry (Infosys BPM)</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Selected <em>Work</em></h2>
-      <div class="section-rule"></div>
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Selected <em>Publications</em></h2>
+      <div class="sec-rule"></div>
     </div>
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <div class="project-index">01</div>
-        <p class="project-tag">Writing · 2025</p>
-        <h3 class="project-name">Project Title One</h3>
-        <p class="project-desc">A brief description of this project — what it is, what it explores, and why it matters to you and your audience.</p>
-        <p class="project-arrow">View Project →</p>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-index">02</div>
-        <p class="project-tag">Art Direction · 2024</p>
-        <h3 class="project-name">Project Title Two</h3>
-        <p class="project-desc">A brief description of this project — what it is, what it explores, and why it matters to you and your audience.</p>
-        <p class="project-arrow">View Project →</p>
-      </div>
-      <div class="project-card reveal">
-        <div class="project-index">03</div>
-        <p class="project-tag">Editorial · 2024</p>
-        <h3 class="project-name">Project Title Three</h3>
-        <p class="project-desc">A brief description of this project — what it is, what it explores, and why it matters to you and your audience.</p>
-        <p class="project-arrow">View Project →</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
+    <div class="pub-filter reveal">
+      <button class="pub-filter-btn active" onclick="filterPubs('all', this)">All</button>
+      <button class="pub-filter-btn" onclick="filterPubs('scopus', this)">Scopus / WoS</button>
+      <button class="pub-filter-btn" onclick="filterPubs('journal', this)">Journals</button>
+      <button class="pub-filter-btn" onclick="filterPubs('book', this)">Book Chapters</button>
+      <button class="pub-filter-btn" onclick="filterPubs('ssrn', this)">Working Papers</button>
+    </div>
+
+    <div class="pub-list">
+
+      <div class="pub-item reveal" data-type="scopus">
+        <div class="pub-idx">01</div>
+        <div>
+          <p class="pub-title">Exploring the Impact of Artificial Intelligence in Business Decision Making</p>
+          <p class="pub-meta">Dr. Rajakrishnan Manivel et al. · Journal of Data Acquisition and Processing, Vol. 38(3), pp. 687–694 · 2023</p>
+        </div>
+        <span class="pub-badge">Scopus</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="book">
+        <div class="pub-idx">02</div>
+        <div>
+          <p class="pub-title">Rural Entrepreneurship: Macro Environmental Factor Impact on the Success of MSMEs</p>
+          <p class="pub-meta">Rajalakshmi G R, Rajakrishnan Manivel et al. · Springer Book Chapter · 2025 · DOI: 10.1007/978-3-031-67890-5_83</p>
+        </div>
+        <span class="pub-badge">Springer</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="book">
+        <div class="pub-idx">03</div>
+        <div>
+          <p class="pub-title">Green Infrastructure: Enhancing Environment Resilience and Sustainability</p>
+          <p class="pub-meta">Dr. Rajakrishnan Manivel et al. · Frameworks and Case Studies on Green Infrastructure and Urban Resilience to Climate Change · January 2025</p>
+        </div>
+        <span class="pub-badge">Book Chapter</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="scopus">
+        <div class="pub-idx">04</div>
+        <div>
+          <p class="pub-title">Impact of Covid-19 Pandemic on FMCG Market in India: Customer Preference in Coimbatore District</p>
+          <p class="pub-meta">Dr. R. Prema &amp; M. Rajakrishnan · Vidyabharati International Interdisciplinary Research Journal · August 2021 · ISSN: 2319-4979</p>
+        </div>
+        <span class="pub-badge">Web of Science</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="scopus">
+        <div class="pub-idx">05</div>
+        <div>
+          <p class="pub-title">A Study on Factors Affecting the Choice of Parents in Selecting School for Kids in Tamilnadu</p>
+          <p class="pub-meta">Dr. P. Jayasubramanian, Dr. A. Rajamani &amp; M. Rajakrishnan · International Journal of Scientific &amp; Technology Research, Vol. 9(6) · June 2020 · ISSN: 2277-8816</p>
+        </div>
+        <span class="pub-badge">Scopus</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="ssrn">
+        <div class="pub-idx">06</div>
+        <div>
+          <p class="pub-title">Decoding Customer Engagement in the Sports Shoe Industry: A Focus on Brand Loyalty and Customer Satisfaction</p>
+          <p class="pub-meta">Rajakrishnan Manivel · SSRN Working Paper · May 2024 · DOI: 10.2139/ssrn.4824003</p>
+        </div>
+        <span class="pub-badge">SSRN</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="ssrn">
+        <div class="pub-idx">07</div>
+        <div>
+          <p class="pub-title">Review Article: Effect of Social Media on Consumer Behaviour and Business Marketing</p>
+          <p class="pub-meta">Rajakrishnan Manivel &amp; Manikavalli N · SSRN Working Paper · July 2024 · DOI: 10.2139/ssrn.4890998</p>
+        </div>
+        <span class="pub-badge">SSRN</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="journal">
+        <div class="pub-idx">08</div>
+        <div>
+          <p class="pub-title">The Influence of Occupational Stress on the Job Satisfaction of College Faculty Members Post Covid-19</p>
+          <p class="pub-meta">Dr. V. Balamurugan, M. Rajakrishnan et al. · ZENITH International Journal of Multidisciplinary Research, Vol. 12(10) · October 2022 · ISSN: 2231-5780</p>
+        </div>
+        <span class="pub-badge">Peer Reviewed</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="journal">
+        <div class="pub-idx">09</div>
+        <div>
+          <p class="pub-title">Digital Banking in India: Impact of Changing Banking Practices on the Indian Economy</p>
+          <p class="pub-meta">Dr. M. Rajakrishnan &amp; Dr. R. Prema · ICSSR Sponsored National Seminar Proceedings, PSG College of Arts &amp; Science · March 2023</p>
+        </div>
+        <span class="pub-badge">Conference</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="journal">
+        <div class="pub-idx">10</div>
+        <div>
+          <p class="pub-title">Consumer Belief and Attitude towards Social Media Marketing</p>
+          <p class="pub-meta">Dr. N. Brindha &amp; M. Rajakrishnan · Aegaeum Journal, Vol. 9(3), pp. 37–50 · March 2021 · ISSN: 0776-3808</p>
+        </div>
+        <span class="pub-badge">UGC Indexed</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="journal">
+        <div class="pub-idx">11</div>
+        <div>
+          <p class="pub-title">Paradigm Shift in Consumer Culture: Digital Payments &amp; Cashless Transactions (Paytm &amp; Google Pay)</p>
+          <p class="pub-meta">Dr. R. Prema &amp; M. Rajakrishnan · IRJMSH, Vol. 10(4) · April 2019 · ISSN: 2277-9809</p>
+        </div>
+        <span class="pub-badge">UGC Indexed</span>
+      </div>
+
+      <div class="pub-item reveal" data-type="journal">
+        <div class="pub-idx">12</div>
+        <div>
+          <p class="pub-title">Challenges Faced by Individual Assessees while Filing Income Tax Returns</p>
+          <p class="pub-meta">M. Rajakrishnan &amp; Dr. K. Udayakumar · IRJMSH, Vol. 10(6) · June 2019 · ISSN: 2277-9809</p>
+        </div>
+        <span class="pub-badge">UGC Indexed</span>
+      </div>
+
+    </div>
+    <p class="pub-more-note reveal">+ 28 more publications in indexed journals, conference proceedings &amp; book chapters</p>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Skills &amp; <em>Craft</em></h2>
-      <div class="section-rule"></div>
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Research <em>Interests</em></h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <div class="research-icon">₹</div>
+        <p class="research-area">Finance</p>
+        <h3 class="research-name">Digital Banking &amp; Fintech</h3>
+        <p class="research-desc">Examining the transformative impact of digital payments, mobile banking, and cashless transactions on India's financial ecosystem and consumer behaviour.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">◎</div>
+        <p class="research-area">Marketing</p>
+        <h3 class="research-name">Consumer Behaviour &amp; Brand Loyalty</h3>
+        <p class="research-desc">Investigating consumer beliefs, attitudes, brand engagement, and decision-making patterns across social media advertising and digital marketing channels.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">⊞</div>
+        <p class="research-area">Taxation</p>
+        <h3 class="research-name">Income Tax &amp; GST Compliance</h3>
+        <p class="research-desc">Analysing taxpayer perception, challenges in filing returns, and the macroeconomic impact of landmark policy reforms like GST on the Indian economy.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">◈</div>
+        <p class="research-area">Technology</p>
+        <h3 class="research-name">AI in Business Decision-Making</h3>
+        <p class="research-desc">Exploring how artificial intelligence and machine learning shape organisational strategy, competitive advantage, and efficiency in modern enterprises.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">⊕</div>
+        <p class="research-area">Sustainability</p>
+        <h3 class="research-name">Green Practices &amp; Urban Resilience</h3>
+        <p class="research-desc">Studying green infrastructure, eco-conscious consumer behaviour, and UN frameworks for sustainable urban development and climate change resilience.</p>
+      </div>
+      <div class="research-card reveal">
+        <div class="research-icon">◻</div>
+        <p class="research-area">Entrepreneurship</p>
+        <h3 class="research-name">MSMEs &amp; Rural Development</h3>
+        <p class="research-desc">Examining macro-environmental factors, rural youth entrepreneurship, and government scheme impact (MUDRA, PMEGP) on India's informal and MSME sector.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Academic <em>Skills</em></h2>
+      <div class="sec-rule"></div>
     </div>
     <div class="skills-layout">
-      <div class="skills-intro reveal">
-        "The discipline of creation is an act of recalling something you already know — and finding the precise form to say it."
+      <div class="reveal">
+        <p class="skill-group-title">Research &amp; Analytics</p>
+        <div class="skill-row"><span class="skill-name">Statistical Analysis (SPSS)</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">SEM — AMOS &amp; PLS</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Data Analytics</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">R Programming</span><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Academic Writing &amp; Publishing</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
       </div>
-      <div class="skills-columns">
-        <div class="reveal">
-          <p class="skill-group-title">Creative</p>
-          <div class="skill-item">
-            <span class="skill-name">Storytelling</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Art Direction</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Copywriting</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Photography</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-          </div>
-        </div>
-        <div class="reveal">
-          <p class="skill-group-title">Technical</p>
-          <div class="skill-item">
-            <span class="skill-name">Adobe Suite</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Figma</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Typography</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Brand Identity</span>
-            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-          </div>
-        </div>
+      <div class="reveal">
+        <p class="skill-group-title">Teaching &amp; Subject Expertise</p>
+        <div class="skill-row"><span class="skill-name">Marketing Management</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Financial Management</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Taxation — Income Tax &amp; GST</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">E-Commerce &amp; Digital Economy</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-row"><span class="skill-name">Human Resource Management</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-left">
-      <h2 class="contact-headline reveal">Let's make<br><em>something</em><br>together.</h2>
-      <p class="contact-sub reveal">Whether you have a project in mind or simply want to connect — I'd love to hear from you.</p>
-      <div class="contact-links reveal">
-        <a href="mailto:hello@yourname.com" class="contact-link">
-          <span class="contact-link-icon"></span>
-          hello@yourname.com
-        </a>
-        <a href="https://instagram.com" target="_blank" class="contact-link">
-          <span class="contact-link-icon"></span>
-          @yourhandle
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="contact-link">
-          <span class="contact-link-icon"></span>
-          LinkedIn
-        </a>
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Awards &amp; <em>Recognition</em></h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card reveal">
+        <p class="award-year">2018 – 2019</p>
+        <h3 class="award-title">Best Teacher Award</h3>
+        <p class="award-body">Recognised for excellence in teaching and student engagement, Dr. N.G.P. Arts and Science College, Coimbatore.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2018 – 2019</p>
+        <h3 class="award-title">Best Mentor Award</h3>
+        <p class="award-body">Awarded for outstanding mentorship and academic guidance, Dr. N.G.P. Arts and Science College, Coimbatore.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2018 – 2019</p>
+        <h3 class="award-title">Best Trainer Award — 1st Place</h3>
+        <p class="award-body">Secured 1st Place (Best Trainer) and 2nd Place at an institutional competition based on participant voting and performance.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2024</p>
+        <h3 class="award-title">Data Analytics Hackathon — 1st Place</h3>
+        <p class="award-body">Secured 1st Place in the Data Analytics Hackathon by Techgyan Technologies at the Indian Institute of Technology.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2025</p>
+        <h3 class="award-title">Session Chair — International Conference</h3>
+        <p class="award-body">Invited as Chair Person for the Technical Session on "AI in Education and Learning Systems" at an international academic conference.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2025</p>
+        <h3 class="award-title">Academic Council Member</h3>
+        <p class="award-body">Appointed as Academic Council Member (Subject Expert), Kovai Kalaimagal College of Arts and Science, Coimbatore.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2026</p>
+        <h3 class="award-title">Global Education Summit — GES-CA</h3>
+        <p class="award-body">Participated in the Global Education Summit on Commerce and Accountancy (GES-CA) 2026, organised by ICAI at New Delhi.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2025</p>
+        <h3 class="award-title">IIT Delhi Research Conference</h3>
+        <p class="award-body">Presented at the Indian Higher Education Research Conference, IIT Delhi (Nov 2025) alongside prominent academic leaders.</p>
+      </div>
+      <div class="award-card reveal">
+        <p class="award-year">2018 – 2019</p>
+        <h3 class="award-title">TNSCST Student Research Grant</h3>
+        <p class="award-body">Guided a funded student project on e-governance in rural Tamil Nadu, supported by the Tamil Nadu State Council for Science &amp; Technology.</p>
       </div>
     </div>
-    <div class="contact-right">
-      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-        <div class="form-field">
-          <label class="form-label">Your Name</label>
-          <input class="form-input" type="text" placeholder="Jane Smith" required />
-        </div>
-        <div class="form-field">
-          <label class="form-label">Email Address</label>
-          <input class="form-input" type="email" placeholder="jane@example.com" required />
-        </div>
-        <div class="form-field">
-          <label class="form-label">Message</label>
-          <textarea class="form-textarea" placeholder="Tell me about your project…" required></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send Message</button>
-      </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-l">
+    <h2 class="contact-hl reveal">Let's <em>connect</em><br>and collaborate.</h2>
+    <p class="contact-sub reveal">Open to research collaborations, conference invitations, editorial reviews, and academic consultations. Feel free to reach out.</p>
+    <div class="contact-items reveal">
+      <div class="contact-item">
+        <span class="c-label">Email</span>
+        <div class="c-val"><a href="mailto:rajakrishnan@psgcas.ac.in">rajakrishnan@psgcas.ac.in</a></div>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">Institution</span>
+        <div class="c-val">PSG College of Arts &amp; Science<br>Coimbatore – 641 014, Tamil Nadu</div>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">ORCID</span>
+        <div class="c-val"><a href="https://orcid.org/0000-0002-5293-4521" target="_blank">0000-0002-5293-4521</a></div>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">ResearchGate</span>
+        <div class="c-val"><a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">researchgate.net/profile/Rajakrishnan-Manivel</a></div>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">Google Scholar</span>
+        <div class="c-val"><a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">View Profile →</a></div>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">LinkedIn</span>
+        <div class="c-val"><a href="https://www.linkedin.com/in/rajakrishnan-m-88b3b9100/" target="_blank">linkedin.com/in/rajakrishnan-m</a></div>
+      </div>
+      <div class="contact-item">
+        <span class="c-label">IRINS</span>
+        <div class="c-val"><a href="https://psgcas.irins.org/profile/207994" target="_blank">PSG CAS IRINS Profile →</a></div>
+      </div>
     </div>
-  </section>
+  </div>
+  <div class="contact-r">
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="f-field"><label class="f-label">Your Name</label><input class="f-input" type="text" placeholder="Dr. Jane Smith" required /></div>
+      <div class="f-field"><label class="f-label">Email Address</label><input class="f-input" type="email" placeholder="jane@university.edu" required /></div>
+      <div class="f-field"><label class="f-label">Subject</label><input class="f-input" type="text" placeholder="Research Collaboration / Conference Invitation..." /></div>
+      <div class="f-field"><label class="f-label">Message</label><textarea class="f-textarea" placeholder="Your message..." required></textarea></div>
+      <button type="submit" class="f-btn">Send Message</button>
+    </form>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <span class="footer-copy">© 2026 Your Name. All rights reserved.</span>
-    <a href="#" class="footer-back">Back to top ↑</a>
-  </footer>
+<footer>
+  <span class="footer-copy">© 2026 Dr. M. Rajakrishnan · PSG College of Arts &amp; Science, Coimbatore</span>
+  <a href="#" class="footer-top">Back to top ↑</a>
+</footer>
 
-  <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 65);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Form submit
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#6a8a6a';
-      setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
-    }
-  </script>
+  // Publication filter
+  function filterPubs(type, btn) {
+    document.querySelectorAll('.pub-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.pub-item').forEach(item => {
+      item.dataset.hidden = (type !== 'all' && item.dataset.type !== type) ? 'true' : 'false';
+    });
+  }
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.f-btn');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#6b8a6b';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.style.color = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
 </body>
 </html>
