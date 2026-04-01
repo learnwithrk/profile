@@ -301,6 +301,69 @@
       transition: width 1.2s ease;
     }
 
+    /* ── BOOKS ── */
+    #books { background: var(--white); }
+    .books-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .book-card {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(13,43,107,0.1);
+      transition: all 0.35s; display: flex; flex-direction: column;
+      border: 1px solid #e8edf5;
+    }
+    .book-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(13,43,107,0.16); }
+    .book-cover {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: center;
+      min-height: 180px; position: relative; overflow: hidden;
+    }
+    .book-cover::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(212,160,23,0.12) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .book-cover-inner { position: relative; z-index: 1; text-align: center; }
+    .book-icon { font-size: 2.8rem; margin-bottom: 0.6rem; display: block; }
+    .book-cover-title {
+      font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700;
+      color: var(--white); line-height: 1.4;
+    }
+    .book-cover-title span { display: block; color: var(--gold-light); font-style: italic; font-size: 0.82rem; margin-top: 0.35rem; }
+    .book-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+    .book-type { font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .book-title { font-family: 'Playfair Display', serif; font-size: 0.98rem; font-weight: 700; color: var(--blue); line-height: 1.35; }
+    .book-author { font-size: 0.78rem; color: var(--muted); }
+    .book-meta { font-size: 0.74rem; color: var(--muted); line-height: 1.65; margin-top: 0.2rem; flex: 1; }
+    .book-links { display: flex; gap: 0.7rem; margin-top: 1rem; flex-wrap: wrap; }
+    .book-btn {
+      font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.45rem 1rem; border-radius: 4px; text-decoration: none;
+      font-weight: 500; transition: all 0.25s;
+    }
+    .book-btn-primary { background: var(--blue); color: var(--white); }
+    .book-btn-primary:hover { background: var(--blue-light); }
+    .book-btn-outline { border: 1px solid var(--gold); color: var(--gold); }
+    .book-btn-outline:hover { background: var(--gold); color: var(--blue); }
+
+    /* ── FUNDING ── */
+    #funding { background: var(--off-white); }
+    .fnd-card {
+      background: var(--white); border: 1px solid #e8edf5;
+      border-radius: 10px; padding: 1.8rem 2rem; 
+      transition: all 0.3s; display: flex; gap: 1.2rem; align-items: flex-start;
+      box-shadow: 0 4px 20px rgba(13,43,107,0.05);
+    }
+    .fnd-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(13,43,107,0.1); border-color: var(--gold); }
+    .fnd-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0; color: var(--white);
+      box-shadow: 0 4px 12px rgba(13,43,107,0.2);
+    }
+    .fnd-year { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; font-weight: 500;}
+    .fnd-title { font-size: 0.95rem; font-weight: 700; color: var(--blue); margin-bottom: 0.5rem; line-height: 1.4; font-family: 'Playfair Display', serif;}
+    .fnd-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
     /* ── AWARDS ── */
     #awards {
       background: linear-gradient(135deg, var(--blue) 0%, #163080 100%);
@@ -407,32 +470,34 @@
       .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .research-grid { grid-template-columns: 1fr 1fr; }
       .pub-grid { grid-template-columns: 1fr; }
+      .books-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 4rem 1.5rem; }
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
     }
     @media (max-width: 600px) {
-      .research-grid, .awards-grid { grid-template-columns: 1fr; }
+      .research-grid, .awards-grid, .books-grid { grid-template-columns: 1fr; }
       .f-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">Dr. <span>Rajakrishnan</span> Manivel</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#books">Books</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#funding">Funding</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="https://learnwithrk.blogspot.com/" target="_blank">Blog</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-geo">
     <span></span><span></span><span></span><span></span>
@@ -479,30 +544,29 @@
       </div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">12+</div>
+      <div class="stat-num">1</div>
       <div class="stat-info">
-        <div class="stat-label">Citations</div>
-        <div class="stat-desc">Across Google Scholar &amp; Scopus</div>
+        <div class="stat-label">Authored Book</div>
+        <div class="stat-desc">Published on Amazon &amp; Eliva Press</div>
       </div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">8+</div>
+      <div class="stat-num">11+</div>
+      <div class="stat-info">
+        <div class="stat-label">Book Chapters</div>
+        <div class="stat-desc">Springer, Eliva Press &amp; edited volumes</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">11+</div>
       <div class="stat-info">
         <div class="stat-label">Years Teaching</div>
         <div class="stat-desc">Commerce, Finance &amp; Marketing</div>
       </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num">20+</div>
-      <div class="stat-info">
-        <div class="stat-label">Conferences</div>
-        <div class="stat-desc">National &amp; International presentations</div>
-      </div>
-    </div>
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="sec-inner">
     <div class="sec-header reveal">
@@ -512,10 +576,11 @@
     </div>
     <div class="about-grid">
       <div class="about-body reveal">
-        <p>Dr. Rajakrishnan Manivel is an Assistant Professor in the Department of Commerce (CA) at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions. With over eight years of teaching and research experience, he brings a rigorous yet engaging approach to Commerce, Finance, and Marketing.</p>
-        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability — areas at the intersection of contemporary economic challenges and scholarly inquiry. He has presented his work at numerous ICSSR-sponsored national and international conferences and serves as an active resource person and session chair.</p>
-        <p>Dr. Rajakrishnan is a prolific academic author with publications in Scopus, Web of Science, and UGC-indexed peer-reviewed journals, a chapter contributor to Springer books, and a working paper author on SSRN. His qualifications include M.Com (CA), M.Phil, MBA, PGDIB, UGC-NET, TNSET, and a PGDIPR in Intellectual Property Law from IGNOU.</p>
+        <p>Dr. Rajakrishnan Manivel is an Assistant Professor in the Department of Commerce (CA) at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions. With 11+ years of teaching experience, he brings a rigorous yet engaging approach to Commerce, Finance, and Marketing.</p>
+        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability. He has authored one book, contributed 11+ book chapters, and published 23+ journal articles. He has presented extensively at national and international conferences.</p>
+        <p>Dr. Rajakrishnan holds a Ph.D. in Commerce, along with M.Com (CA), M.Phil, MBA, PGDIB, PGDIPR, UGC-NET, and TNSET. His work appears in Scopus, Web of Science, and UGC-indexed journals, Springer book volumes, Eliva Press, and SSRN.</p>
         <ul class="qualif-list reveal">
+          <li><strong>Ph.D. — Commerce</strong><span class="q-year">Thiruvalluvar University · 2024</span></li>
           <li><strong>MBA — HRM &amp; Finance</strong><span class="q-year">Bharathiar University · 2016</span></li>
           <li><strong>M.Phil — Commerce</strong><span class="q-year">Hindusthan College · 2014</span></li>
           <li><strong>M.Com (Computer Applications)</strong><span class="q-year">Hindusthan College · 2013</span></li>
@@ -543,14 +608,13 @@
         </div>
         <div class="aside-card">
           <p class="ac-label">Experience</p>
-          <p class="ac-val">8+ Years Teaching · 1 Year Industry (Infosys BPM)</p>
+          <p class="ac-val">11+ Years Teaching · 1 Year Industry (Infosys BPM)</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
 <section id="publications">
   <div class="sec-inner">
     <div class="sec-header reveal">
@@ -644,7 +708,6 @@
   </div>
 </section>
 
-<!-- RESEARCH -->
 <section id="research">
   <div class="sec-inner">
     <div class="sec-header reveal">
@@ -693,7 +756,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="sec-inner">
     <div class="sec-header reveal">
@@ -722,11 +784,116 @@
   </div>
 </section>
 
-<!-- AWARDS -->
-<section id="awards">
+<section id="books">
   <div class="sec-inner">
     <div class="sec-header reveal">
       <span class="sec-label">05</span>
+      <h2 class="sec-title">Authored <em>Books</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="books-grid">
+
+      <div class="book-card reveal">
+        <div class="book-cover">
+          <div class="book-cover-inner">
+            <span class="book-icon">📘</span>
+            <div class="book-cover-title">
+              Decoding Customer Engagement in the Sports Industry
+              <span>Eliva Press · 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="book-body">
+          <p class="book-type">Authored Book</p>
+          <h3 class="book-title">Decoding Customer Engagement in the Sports Industry: A Focus on Brand Loyalty and Customer Satisfaction</h3>
+          <p class="book-author">Dr. Rajakrishnan Manivel</p>
+          <p class="book-meta">In today's competitive market, fostering strong customer engagement is crucial for building brand loyalty and ensuring customer satisfaction. This book explores strategies and practices that top brands use to connect with their consumers on a deeper level. Publisher: Eliva Press · ISBN: 978-9999318334</p>
+          <div class="book-links">
+            <a href="https://www.amazon.com/Decoding-Customer-Engagement-Sports-Industry/dp/9999318339" target="_blank" class="book-btn book-btn-primary">Buy on Amazon</a>
+            <a href="https://www.elivapress.com/en/authors/author-6117220688/" target="_blank" class="book-btn book-btn-outline">Eliva Press</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-cover">
+          <div class="book-cover-inner">
+            <span class="book-icon">📗</span>
+            <div class="book-cover-title">
+              Rural Entrepreneurship: MSMEs
+              <span>Springer · 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="book-body">
+          <p class="book-type">Book Chapter — Springer</p>
+          <h3 class="book-title">Rural Entrepreneurship: Macro Environmental Factor Impact on the Success of MSMEs</h3>
+          <p class="book-author">Rajalakshmi G R, Rajakrishnan Manivel et al.</p>
+          <p class="book-meta">Examines how macro-environmental factors shape the success of micro, small, and medium enterprises in rural India. Part of a Springer edited volume on entrepreneurship and sustainable development. DOI: 10.1007/978-3-031-67890-5_83</p>
+          <div class="book-links">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-67890-5_83" target="_blank" class="book-btn book-btn-primary">View Chapter</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-cover">
+          <div class="book-cover-inner">
+            <span class="book-icon">📙</span>
+            <div class="book-cover-title">
+              Green Infrastructure &amp; Urban Resilience
+              <span>Book Chapter · 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="book-body">
+          <p class="book-type">Book Chapter</p>
+          <h3 class="book-title">Green Infrastructure: Enhancing Environment Resilience and Sustainability</h3>
+          <p class="book-author">Dr. Rajakrishnan Manivel et al.</p>
+          <p class="book-meta">Studies the role of green infrastructure in improving urban resilience, exploring environmental, social, and economic impacts, and examining policy frameworks. Part of "Frameworks and Case Studies on Green Infrastructure and Urban Resilience to Climate Change" · 2025</p>
+          <div class="book-links">
+            <a href="https://www.researchgate.net/publication/388556958" target="_blank" class="book-btn book-btn-primary">View on ResearchGate</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:var(--muted); font-style:italic;">+ 8 more book chapters in national &amp; international edited volumes</p>
+  </div>
+</section>
+
+<section id="funding">
+  <div class="sec-inner">
+    <div class="sec-header reveal">
+      <span class="sec-label">06</span>
+      <h2 class="sec-title">Grants &amp; <em>Funding</em></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="awards-grid">
+      <div class="fnd-card reveal">
+        <div class="fnd-icon">💡</div>
+        <div class="aw-body">
+          <p class="fnd-year">2024 (Grant: SS-524)</p>
+          <h3 class="fnd-title">The living and working condition of rural domestic women workers in selected areas of Coimbatore district in Tamil Nadu</h3>
+          <p class="fnd-desc">Funded by: Tamilnadu State Council For Science And Technology, Chennai</p>
+        </div>
+      </div>
+      <div class="fnd-card reveal">
+        <div class="fnd-icon">📜</div>
+        <div class="aw-body">
+          <p class="fnd-year">2018 – 2019 (Grant: SS-009)</p>
+          <h3 class="fnd-title">Impact of e-governance in Coimbatore district of Tamilnadu with special reference to good governance among SC/ST people in selected rural areas</h3>
+          <p class="fnd-desc">Funded by: Tamilnadu State Council for Science and Technology, Chennai</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="sec-inner">
+    <div class="sec-header reveal">
+      <span class="sec-label">07</span>
       <h2 class="sec-title">Awards &amp; <em>Recognition</em></h2>
       <div class="sec-line"></div>
     </div>
@@ -767,11 +934,10 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="sec-inner">
     <div class="sec-header reveal">
-      <span class="sec-label">06</span>
+      <span class="sec-label">08</span>
       <h2 class="sec-title">Get in <em>Touch</em></h2>
       <div class="sec-line"></div>
     </div>
@@ -780,7 +946,7 @@
         <h3 class="contact-hl">Let's connect<br>and <em>collaborate.</em></h3>
         <p class="contact-sub">Open to research collaborations, conference invitations, editorial reviews, and academic consultations. Feel free to reach out.</p>
         <div class="contact-items">
-          <div class="ci"><span class="ci-icon">✉️</span><div><p class="ci-label">Email</p><p class="ci-val"><a href="mailto:rajakrishnancommerce@gmail.com">rajakrishnancommerce@gmail.com</a></p></div></div>
+          <div class="ci"><span class="ci-icon">✉️</span><div><p class="ci-label">Email</p><p class="ci-val"><a href="/cdn-cgi/l/email-protection#d7a5b6bdb6bca5bea4bfb9b6b9b4b8babab2a5b4b297b0bab6bebbf9b4b8ba"><span class="__cf_email__" data-cfemail="b5c7d4dfd4dec7dcc6dddbd4dbd6dad8d8d0c7d6d0f5d2d8d4dcd99bd6dad8">[email&#160;protected]</span></a></p></div></div>
           <div class="ci"><span class="ci-icon">🏛️</span><div><p class="ci-label">Institution</p><p class="ci-val">PSG College of Arts &amp; Science, Coimbatore – 641 014</p></div></div>
           <div class="ci"><span class="ci-icon">🔬</span><div><p class="ci-label">ORCID</p><p class="ci-val"><a href="https://orcid.org/0000-0002-5293-4521" target="_blank">0000-0002-5293-4521</a></p></div></div>
           <div class="ci"><span class="ci-icon">📚</span><div><p class="ci-label">Google Scholar</p><p class="ci-val"><a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">View Profile →</a></p></div></div>
@@ -791,7 +957,7 @@
       <div class="contact-form-wrap reveal">
         <h4 class="form-title">Send a Message</h4>
         <p class="form-sub">Fill in the form and it'll land directly in my inbox.</p>
-        <form class="contact-form" action="https://formspree.io/f/xreokgbq" method="POST">
+        <form class="contact-form" action="https://formspree.io/f/rajakrishnancommerce@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New message from your profile website" />
           <div class="f-row">
             <div class="f-field"><label class="f-label">Your Name</label><input class="f-input" type="text" name="name" placeholder="Dr. Jane Smith" required /></div>
@@ -806,17 +972,18 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-copy">© 2026 Dr. Rajakrishnan Manivel · PSG College of Arts &amp; Science, Coimbatore</span>
   <div class="footer-links">
     <a href="#about">About</a>
     <a href="#publications">Publications</a>
     <a href="#contact">Contact</a>
+    <a href="https://learnwithrk.blogspot.com/" target="_blank">Blog</a>
     <a href="#">Back to Top ↑</a>
   </div>
 </footer>
 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
   // Scroll reveal
   const io = new IntersectionObserver((entries) => {
@@ -831,10 +998,17 @@
 
   // Publication filter
   function filterPubs(type, btn) {
-    document.querySelectorAll('.pub-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
+
     document.querySelectorAll('.pub-card').forEach(card => {
-      card.dataset.hidden = (type !== 'all' && card.dataset.type !== type) ? 'true' : 'false';
+      if (type === 'all' || card.dataset.type === type) {
+        card.dataset.hidden = "false";
+        card.style.display = "block";
+      } else {
+        card.dataset.hidden = "true";
+        card.style.display = "none";
+      }
     });
   }
 </script>
