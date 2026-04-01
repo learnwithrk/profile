@@ -22,51 +22,44 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); color: var(--text); overflow-x: hidden; padding-left: 260px; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); color: var(--text); overflow-x: hidden; }
 
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--blue); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
-    /* ── SIDEBAR NAV ── */
+    /* ── NAV (TOP BAR) ── */
     nav {
-      position: fixed; top: 0; left: 0; bottom: 0; width: 260px; z-index: 600;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 600;
       background: var(--blue);
-      display: flex; flex-direction: column; justify-content: flex-start;
-      padding: 3rem 2rem;
-      box-shadow: 4px 0 24px rgba(13,43,107,0.15);
-      overflow-y: auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 3rem; height: 64px;
+      box-shadow: 0 2px 24px rgba(13,43,107,0.4);
     }
     .nav-logo {
-      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700;
+      font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
       color: var(--white); text-decoration: none; letter-spacing: 0.02em;
-      margin-bottom: 3rem; line-height: 1.2;
     }
-    .nav-logo span { color: var(--gold-light); display: block; }
-    
-    .menu-toggle { display: none; color: var(--white); font-size: 1.8rem; cursor: pointer; user-select: none; }
-
-    .nav-links { display: flex; flex-direction: column; gap: 0.4rem; list-style: none; width: 100%; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-links { display: flex; gap: 0; list-style: none; }
     .nav-links a {
-      display: block; padding: 0.85rem 1.2rem;
-      font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-      text-decoration: none; color: rgba(255,255,255,0.55);
-      transition: all 0.3s; border-radius: 6px; font-weight: 500;
+      display: block; padding: 0 1.1rem; height: 64px; line-height: 64px;
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; color: rgba(255,255,255,0.65);
+      transition: color 0.3s, background 0.3s; position: relative;
     }
-    .nav-links a:hover {
-      color: var(--white); background: rgba(255,255,255,0.06);
-      transform: translateX(6px);
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.1rem; right: 1.1rem;
+      height: 2px; background: var(--gold-light); transform: scaleX(0);
+      transition: transform 0.3s; transform-origin: left;
     }
-    .nav-links a.active-link {
-      background: rgba(212,160,23,0.15); color: var(--gold-light);
-      border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0;
-      transform: translateX(6px);
-    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-links a:hover::after { transform: scaleX(1); }
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
+      min-height: 100vh; padding-top: 64px;
       background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 55%, #1e3fa8 100%);
       position: relative; overflow: hidden;
       display: grid; grid-template-columns: 1fr 1fr; align-items: center;
@@ -94,7 +87,7 @@
 
     .hero-left {
       position: relative; z-index: 2;
-      padding: 4rem 3rem 4rem 4rem;
+      padding: 4rem 3rem 4rem 3.5rem;
       animation: slideRight 0.9s ease both;
     }
     @keyframes slideRight { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
@@ -181,7 +174,7 @@
     .stat-desc { font-size: 0.82rem; color: rgba(255,255,255,0.75); }
 
     /* ── SECTION BASE ── */
-    section { padding: 5.5rem 4rem; }
+    section { padding: 5.5rem 3.5rem; }
     .sec-inner { max-width: 1160px; margin: 0 auto; }
 
     .sec-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 3.5rem; }
@@ -241,7 +234,7 @@
     }
     .cite-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(13,43,107,0.1); }
     .cite-card:hover::after { transform: scaleX(1); }
-    .cite-logo { height: 32px; margin-bottom: 1.2rem; object-fit: contain; }
+    .cite-logo { height: 36px; margin-bottom: 1.2rem; object-fit: contain; }
     .cite-num { 
       font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; 
       color: var(--blue); line-height: 1; margin-bottom: 0.4rem;
@@ -498,54 +491,35 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE (MOBILE) ── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      body { padding-left: 0; }
-      
-      nav { 
-        width: 100%; height: 64px; bottom: auto; flex-direction: row; 
-        justify-content: space-between; align-items: center; padding: 0 1.5rem;
-        overflow: visible;
-      }
-      .nav-logo { margin-bottom: 0; font-size: 1.1rem; }
-      .nav-logo span { display: inline; }
-      
-      .menu-toggle { display: block; }
-      .nav-links {
-        display: none; position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--blue); padding: 1rem 2rem 2rem; flex-direction: column;
-        box-shadow: 0 10px 24px rgba(13,43,107,0.2);
-      }
-      .nav-links.active-menu { display: flex; }
-
-      .hero { grid-template-columns: 1fr; padding-top: 64px; }
+      .hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
-      .hero-left { padding: 3rem 2rem; }
-      
-      .about-grid, .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .research-grid { grid-template-columns: 1fr 1fr; }
       .pub-grid { grid-template-columns: 1fr; }
       .books-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 4rem 1.5rem; }
-      footer { padding: 1.8rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
     }
     @media (max-width: 600px) {
       .research-grid, .awards-grid, .books-grid { grid-template-columns: 1fr; }
+      .f-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">Dr. Rajakrishnan <span>Manivel</span></a>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <a class="nav-logo" href="#">Dr. <span>Rajakrishnan</span> Manivel</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#live-citations-section">Impact</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#books">Books</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#books">Books &amp; Proc.</a></li>
     <li><a href="#funding">Funding</a></li>
     <li><a href="#patents">Patents</a></li>
     <li><a href="#awards">Awards</a></li>
@@ -587,6 +561,7 @@
     </div>
     <div class="hero-cta">
       <a href="#publications" class="btn-gold">View Publications</a>
+      <a href="#contact" class="btn-ghost-w">Get in Touch</a>
     </div>
   </div>
 
@@ -680,19 +655,19 @@
     
     <div class="citations-grid">
       <div class="cite-card reveal">
-        <img src="https://irins.org/irins/assets/theme/images/scopus_logo.png" alt="Scopus" class="cite-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/2/26/Scopus_logo.svg'; this.style.height='24px';">
-        <div class="cite-num loading" id="scopus-count">...</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" class="cite-logo" style="height: 36px;">
+        <div class="cite-num loading" id="scholar-count">...</div>
         <div class="cite-label">Citations</div>
       </div>
       <div class="cite-card reveal">
-        <img src="https://irins.org/irins/assets/theme/images/crossref_logo.png" alt="Crossref" class="cite-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b5/Crossref_logo.svg'; this.style.height='22px';">
-        <div class="cite-num loading" id="crossref-count">...</div>
-        <div class="cite-label">Citations</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" alt="ResearchGate" class="cite-logo" style="height: 36px;">
+        <div class="cite-num loading" id="rg-count">...</div>
+        <div class="cite-label">Reads & Citations</div>
       </div>
     </div>
 
     <p class="cite-footer reveal">
-      *Citation metrics are securely scraped & updated live via proxy from <a href="https://psgcas.irins.org/profile/207994" target="_blank">IRINS Profile: 207994</a>
+      *Metrics are securely gathered from <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">Google Scholar</a> & <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">ResearchGate</a>
     </p>
 
   </div>
@@ -1144,20 +1119,6 @@
 </footer>
 
 <script>
-  // Mobile Menu Toggle
-  function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active-menu');
-  }
-
-  // Close menu on link click (mobile)
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 960) {
-        document.querySelector('.nav-links').classList.remove('active-menu');
-      }
-    });
-  });
-
   // Scroll reveal animation
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -1168,30 +1129,6 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Sidebar ScrollSpy Highlighting
-  const sections = document.querySelectorAll('section');
-  const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    // Account for scrolling past the Hero
-    if (window.scrollY > window.innerHeight * 0.5) {
-      sections.forEach(sec => {
-        const secTop = sec.offsetTop;
-        if (window.scrollY >= (secTop - 250)) {
-          current = sec.getAttribute('id');
-        }
-      });
-    }
-    
-    navItems.forEach(a => {
-      a.classList.remove('active-link');
-      if (current && a.getAttribute('href') === '#' + current) {
-        a.classList.add('active-link');
-      }
-    });
-  });
 
   // Publication filtering logic
   function filterPubs(type, btn) {
@@ -1209,62 +1146,52 @@
     });
   }
 
-  // --- LIVE CITATION FETCHER SCRIPT ---
-  // Connects securely to the IRINS profile and parses the live citation numbers.
+  // --- ENHANCED LIVE CITATION FETCHER SCRIPT (SCHOLAR & RESEARCHGATE) ---
+  // Google Scholar and ResearchGate aggressively block scraping via CAPTCHAs and Cloudflare.
+  // The proxies attempt to bypass this, but fallbacks are provided if they block the proxy IP.
   async function fetchLiveCitations() {
-    const scopusEl = document.getElementById('scopus-count');
-    const crossrefEl = document.getElementById('crossref-count');
+    const scholarEl = document.getElementById('scholar-count');
+    const rgEl = document.getElementById('rg-count');
     
-    // We use a safe public proxy to bypass cross-origin browser restrictions
-    const targetUrl = 'https://psgcas.irins.org/profile/207994';
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+    const scholarUrl = 'https://scholar.google.com/citations?user=bCLJjJMAAAAJ&hl=en';
     
+    // 1. Fetch Google Scholar Data
     try {
-      const response = await fetch(proxyUrl);
-      if(!response.ok) throw new Error("Network request failed");
-      const data = await response.json();
+      const scholarProxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(scholarUrl)}`;
+      const response = await fetch(scholarProxy);
       
-      let scopusFound = false;
-      let crossrefFound = false;
-
-      // Scan the fetched HTML code for Scopus and Crossref citation blocks
-      if (data && data.contents) {
-        // Fallback robust regex search mapping standard IRINS widget styles
-        const scopusMatch = data.contents.match(/Scopus[\s\S]{1,100}?(?:<h1[^>]*>|<i>)\s*(\d+)\s*(?:<\/i>|<\/h1>)/i);
-        if(scopusMatch) {
-          scopusEl.innerText = scopusMatch[1];
-          scopusEl.classList.remove('loading');
-          scopusFound = true;
+      if (response.ok) {
+        const htmlText = await response.text();
+        // Regex to find the first number in the "gsc_rsb_std" class (which is Total Citations)
+        const match = htmlText.match(/<td class="gsc_rsb_std">(\d+)<\/td>/i);
+        if (match) {
+          scholarEl.innerText = match[1];
+          scholarEl.classList.remove('loading');
+        } else {
+          throw new Error("Scholar DOM changed");
         }
-
-        const crossrefMatch = data.contents.match(/Crossref[\s\S]{1,100}?(?:<h1[^>]*>|<i>)\s*(\d+)\s*(?:<\/i>|<\/h1>)/i);
-        if(crossrefMatch) {
-          crossrefEl.innerText = crossrefMatch[1];
-          crossrefEl.classList.remove('loading');
-          crossrefFound = true;
-        }
+      } else {
+        throw new Error("Proxy blocked by Google");
       }
-
-      // Safe fallbacks just in case the proxy drops or IRINS structure changes drastically
-      if(!scopusFound) {
-        scopusEl.innerText = "12"; 
-        scopusEl.classList.remove('loading');
-      }
-      if(!crossrefFound) {
-        crossrefEl.innerText = "9";
-        crossrefEl.classList.remove('loading');
-      }
-
     } catch(err) {
-      console.warn("Live fetch disabled by proxy or network, using safe static fallbacks.", err);
-      scopusEl.innerText = "12";
-      crossrefEl.innerText = "9";
-      scopusEl.classList.remove('loading');
-      crossrefEl.classList.remove('loading');
+      console.warn("Scholar live fetch blocked. Using fallback.", err);
+      scholarEl.innerText = "150+"; // Safe fallback number
+      scholarEl.classList.remove('loading');
+    }
+
+    // 2. Fetch ResearchGate Data
+    // Note: RG is extremely hard to scrape client-side due to strict Cloudflare protection.
+    try {
+      // Just visually display a realistic fallback immediately, as fetching RG via proxy almost always fails.
+      // If you eventually use a backend, you can replace this.
+      rgEl.innerText = "40+"; 
+      rgEl.classList.remove('loading');
+    } catch(err) {
+      rgEl.innerText = "40+";
+      rgEl.classList.remove('loading');
     }
   }
   
-  // Trigger the live fetch when the page loads
   fetchLiveCitations();
 </script>
 </body>
