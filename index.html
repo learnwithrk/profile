@@ -1,8 +1,3 @@
-Here is the updated HTML file. I have completely transformed the top navigation into a **professional fixed left sidebar menu**. 
-
-To make it even better, I also added a "ScrollSpy" feature—as you scroll down the page, the sidebar menu will automatically highlight the section you are currently reading. For mobile devices and smaller screens, it seamlessly collapses into a mobile-friendly "hamburger" menu at the top.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,51 +22,44 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); color: var(--text); overflow-x: hidden; padding-left: 260px; }
+    body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--off-white); color: var(--text); overflow-x: hidden; }
 
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--blue); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
-    /* ── SIDEBAR NAV ── */
+    /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; bottom: 0; width: 260px; z-index: 600;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 600;
       background: var(--blue);
-      display: flex; flex-direction: column; justify-content: flex-start;
-      padding: 3rem 2rem;
-      box-shadow: 4px 0 24px rgba(13,43,107,0.15);
-      overflow-y: auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 3rem; height: 64px;
+      box-shadow: 0 2px 24px rgba(13,43,107,0.4);
     }
     .nav-logo {
-      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700;
+      font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
       color: var(--white); text-decoration: none; letter-spacing: 0.02em;
-      margin-bottom: 3rem; line-height: 1.2;
     }
-    .nav-logo span { color: var(--gold-light); display: block; }
-    
-    .menu-toggle { display: none; color: var(--white); font-size: 1.8rem; cursor: pointer; user-select: none; }
-
-    .nav-links { display: flex; flex-direction: column; gap: 0.4rem; list-style: none; width: 100%; }
+    .nav-logo span { color: var(--gold-light); }
+    .nav-links { display: flex; gap: 0; list-style: none; }
     .nav-links a {
-      display: block; padding: 0.85rem 1.2rem;
-      font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
-      text-decoration: none; color: rgba(255,255,255,0.55);
-      transition: all 0.3s; border-radius: 6px; font-weight: 500;
+      display: block; padding: 0 1.1rem; height: 64px; line-height: 64px;
+      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; color: rgba(255,255,255,0.65);
+      transition: color 0.3s, background 0.3s; position: relative;
     }
-    .nav-links a:hover {
-      color: var(--white); background: rgba(255,255,255,0.06);
-      transform: translateX(6px);
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.1rem; right: 1.1rem;
+      height: 2px; background: var(--gold-light); transform: scaleX(0);
+      transition: transform 0.3s; transform-origin: left;
     }
-    .nav-links a.active-link {
-      background: rgba(212,160,23,0.15); color: var(--gold-light);
-      border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0;
-      transform: translateX(6px);
-    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-links a:hover::after { transform: scaleX(1); }
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
+      min-height: 100vh; padding-top: 64px;
       background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 55%, #1e3fa8 100%);
       position: relative; overflow: hidden;
       display: grid; grid-template-columns: 1fr 1fr; align-items: center;
@@ -99,7 +87,7 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
 
     .hero-left {
       position: relative; z-index: 2;
-      padding: 4rem 3rem 4rem 4rem;
+      padding: 4rem 3rem 4rem 3.5rem;
       animation: slideRight 0.9s ease both;
     }
     @keyframes slideRight { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
@@ -186,7 +174,7 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     .stat-desc { font-size: 0.82rem; color: rgba(255,255,255,0.75); }
 
     /* ── SECTION BASE ── */
-    section { padding: 5.5rem 4rem; }
+    section { padding: 5.5rem 3.5rem; }
     .sec-inner { max-width: 1160px; margin: 0 auto; }
 
     .sec-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 3.5rem; }
@@ -231,31 +219,6 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     .aside-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(13,43,107,0.1); }
     .ac-label { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
     .ac-val { font-size: 0.92rem; font-weight: 500; color: var(--blue); line-height: 1.5; }
-
-    /* ── LIVE CITATIONS ── */
-    #live-citations-section { background: var(--off-white); padding-top: 2rem; }
-    .citations-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: -1rem; }
-    .cite-card {
-      background: var(--white); border: 1px solid #e8edf5; border-radius: 12px; 
-      padding: 2.5rem 3.5rem; text-align: center; box-shadow: 0 4px 20px rgba(13,43,107,0.05);
-      min-width: 240px; transition: all 0.3s; position: relative; overflow: hidden;
-    }
-    .cite-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-      background: var(--gold); transform: scaleX(0); transition: transform 0.3s;
-    }
-    .cite-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(13,43,107,0.1); }
-    .cite-card:hover::after { transform: scaleX(1); }
-    .cite-logo { height: 32px; margin-bottom: 1.2rem; object-fit: contain; }
-    .cite-num { 
-      font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; 
-      color: var(--blue); line-height: 1; margin-bottom: 0.4rem;
-    }
-    .cite-num.loading { opacity: 0.3; animation: blink 1.5s infinite; }
-    .cite-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
-    .cite-footer { text-align: center; font-size: 0.75rem; color: var(--muted); margin-top: 2.5rem; font-style: italic; }
-    .cite-footer a { color: var(--blue-light); text-decoration: none; font-weight: 500; }
-    .cite-footer a:hover { text-decoration: underline; }
 
     /* ── PUBLICATIONS ── */
     #publications { background: var(--blue); }
@@ -339,15 +302,15 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     }
 
     /* ── BOOKS ── */
-    #books { background: var(--off-white); }
+    #books { background: var(--white); }
     .books-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
     .book-card {
-      background: var(--white); border-radius: 12px; overflow: hidden;
-      box-shadow: 0 4px 20px rgba(13,43,107,0.06);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(13,43,107,0.1);
       transition: all 0.35s; display: flex; flex-direction: column;
       border: 1px solid #e8edf5;
     }
-    .book-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(13,43,107,0.12); }
+    .book-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(13,43,107,0.16); }
     .book-cover {
       background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
       padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: center;
@@ -382,9 +345,9 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     .book-btn-outline:hover { background: var(--gold); color: var(--blue); }
 
     /* ── FUNDING ── */
-    #funding { background: var(--white); }
+    #funding { background: var(--off-white); }
     .fnd-card {
-      background: var(--off-white); border: 1px solid #e8edf5;
+      background: var(--white); border: 1px solid #e8edf5;
       border-radius: 10px; padding: 1.8rem 2rem; 
       transition: all 0.3s; display: flex; gap: 1.2rem; align-items: flex-start;
       box-shadow: 0 4px 20px rgba(13,43,107,0.05);
@@ -402,7 +365,7 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     .fnd-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
 
     /* ── PATENTS ── */
-    #patents { background: var(--off-white); }
+    #patents { background: var(--white); }
 
     /* ── AWARDS ── */
     #awards {
@@ -437,6 +400,58 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     .aw-title { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.35rem; line-height: 1.3; }
     .aw-desc { font-size: 0.75rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
+    /* ── CONTACT ── */
+    #contact { background: var(--off-white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+    .contact-info {}
+    .contact-hl {
+      font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3.5vw,3rem);
+      font-weight: 700; color: var(--blue); line-height: 1.15; margin-bottom: 1rem;
+    }
+    .contact-hl em { font-style: italic; color: var(--gold); }
+    .contact-sub { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 0.9rem; }
+    .ci {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--white); border-radius: 8px; padding: 1rem 1.2rem;
+      border-left: 3px solid var(--gold);
+      transition: box-shadow 0.3s;
+    }
+    .ci:hover { box-shadow: 0 4px 18px rgba(13,43,107,0.1); }
+    .ci-icon { font-size: 1rem; margin-top: 1px; }
+    .ci-label { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+    .ci-val { font-size: 0.9rem; font-weight: 500; color: var(--blue); }
+    .ci-val a { color: var(--blue); text-decoration: none; transition: color 0.3s; }
+    .ci-val a:hover { color: var(--gold); }
+
+    .contact-form-wrap {
+      background: var(--white); border-radius: 16px; padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(13,43,107,0.1);
+    }
+    .form-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--blue); margin-bottom: 0.4rem; }
+    .form-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.8rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .f-field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .f-label { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .f-input, .f-textarea {
+      border: 1.5px solid #e2e8f5; border-radius: 6px; padding: 0.7rem 0.9rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: var(--text);
+      background: var(--off-white); outline: none; transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .f-input:focus, .f-textarea:focus { border-color: var(--blue-light); box-shadow: 0 0 0 3px rgba(26,66,152,0.1); background: var(--white); }
+    .f-textarea { resize: none; height: 100px; }
+    .f-btn {
+      padding: 0.9rem 2rem; background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      color: var(--white); border: none; border-radius: 6px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+      transition: all 0.3s; box-shadow: 0 4px 16px rgba(13,43,107,0.3);
+    }
+    .f-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(13,43,107,0.4); }
+
     /* ── FOOTER ── */
     footer {
       background: var(--blue); padding: 1.8rem 3.5rem;
@@ -451,54 +466,34 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE (MOBILE) ── */
+    /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      body { padding-left: 0; }
-      
-      nav { 
-        width: 100%; height: 64px; bottom: auto; flex-direction: row; 
-        justify-content: space-between; align-items: center; padding: 0 1.5rem;
-        overflow: visible;
-      }
-      .nav-logo { margin-bottom: 0; font-size: 1.1rem; }
-      .nav-logo span { display: inline; }
-      
-      .menu-toggle { display: block; }
-      .nav-links {
-        display: none; position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--blue); padding: 1rem 2rem 2rem; flex-direction: column;
-        box-shadow: 0 10px 24px rgba(13,43,107,0.2);
-      }
-      .nav-links.active-menu { display: flex; }
-
-      .hero { grid-template-columns: 1fr; padding-top: 64px; }
+      .hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
-      .hero-left { padding: 3rem 2rem; }
-      
-      .about-grid, .skills-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .research-grid { grid-template-columns: 1fr 1fr; }
       .pub-grid { grid-template-columns: 1fr; }
       .books-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 4rem 1.5rem; }
-      footer { padding: 1.8rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
     }
     @media (max-width: 600px) {
       .research-grid, .awards-grid, .books-grid { grid-template-columns: 1fr; }
+      .f-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">Dr. Rajakrishnan <span>Manivel</span></a>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <a class="nav-logo" href="#">Dr. <span>Rajakrishnan</span> Manivel</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#live-citations-section">Impact</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#books">Books</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#books">Books &amp; Proc.</a></li>
     <li><a href="#funding">Funding</a></li>
     <li><a href="#patents">Patents</a></li>
     <li><a href="#awards">Awards</a></li>
@@ -584,7 +579,7 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
     <div class="about-grid">
       <div class="about-body reveal">
         <p>Dr. Rajakrishnan Manivel is an Assistant Professor in the Department of Commerce (CA) at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions. With 11+ years of teaching experience, he brings a rigorous yet engaging approach to Commerce, Finance, and Marketing.</p>
-        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability. He has authored books, contributed 11+ book chapters, and published 23+ journal articles. He has presented extensively at national and international conferences.</p>
+        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability. He has authored one book, contributed 11+ book chapters, and published 23+ journal articles. He has presented extensively at national and international conferences.</p>
         <p>Dr. Rajakrishnan holds a Ph.D. in Commerce, along with M.Com (CA), M.Phil, MBA, PGDIB, PGDIPR, UGC-NET, and TNSET. His work appears in Scopus, Web of Science, and UGC-indexed journals, Springer book volumes, Eliva Press, and SSRN.</p>
         <ul class="qualif-list reveal">
           <li><strong>Ph.D. — Commerce</strong><span class="q-year">Thiruvalluvar University · 2024</span></li>
@@ -622,38 +617,10 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
   </div>
 </section>
 
-<section id="live-citations-section">
-  <div class="sec-inner">
-    <div class="sec-header reveal">
-      <span class="sec-label">02</span>
-      <h2 class="sec-title">Research <em>Impact</em></h2>
-      <div class="sec-line"></div>
-    </div>
-    
-    <div class="citations-grid">
-      <div class="cite-card reveal">
-        <img src="https://irins.org/irins/assets/theme/images/scopus_logo.png" alt="Scopus" class="cite-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/2/26/Scopus_logo.svg'; this.style.height='24px';">
-        <div class="cite-num loading" id="scopus-count">...</div>
-        <div class="cite-label">Citations</div>
-      </div>
-      <div class="cite-card reveal">
-        <img src="https://irins.org/irins/assets/theme/images/crossref_logo.png" alt="Crossref" class="cite-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/b/b5/Crossref_logo.svg'; this.style.height='22px';">
-        <div class="cite-num loading" id="crossref-count">...</div>
-        <div class="cite-label">Citations</div>
-      </div>
-    </div>
-
-    <p class="cite-footer reveal">
-      *Citation metrics are securely scraped & updated live via proxy from <a href="https://psgcas.irins.org/profile/207994" target="_blank">IRINS Profile: 207994</a>
-    </p>
-
-  </div>
-</section>
-
 <section id="publications">
   <div class="sec-inner">
     <div class="sec-header reveal">
-      <span class="sec-label">03</span>
+      <span class="sec-label">02</span>
       <h2 class="sec-title">Selected <em>Publications</em></h2>
       <div class="sec-line"></div>
     </div>
@@ -746,7 +713,7 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
 <section id="research">
   <div class="sec-inner">
     <div class="sec-header reveal">
-      <span class="sec-label">04</span>
+      <span class="sec-label">03</span>
       <h2 class="sec-title">Research <em>Interests</em></h2>
       <div class="sec-line"></div>
     </div>
@@ -794,7 +761,7 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
 <section id="skills">
   <div class="sec-inner">
     <div class="sec-header reveal">
-      <span class="sec-label">05</span>
+      <span class="sec-label">04</span>
       <h2 class="sec-title">Academic <em>Skills</em></h2>
       <div class="sec-line"></div>
     </div>
@@ -822,7 +789,7 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
 <section id="books">
   <div class="sec-inner">
     <div class="sec-header reveal">
-      <span class="sec-label">06</span>
+      <span class="sec-label">05</span>
       <h2 class="sec-title">Books &amp; <em>Edited Volumes</em></h2>
       <div class="sec-line"></div>
     </div>
@@ -863,325 +830,4 @@ To make it even better, I also added a "ScrollSpy" feature—as you scroll down 
           <p class="book-type">Authored Book</p>
           <h3 class="book-title">Introduction to Business Environment</h3>
           <p class="book-author">Dr. Rajakrishnan Manivel</p>
-          <p class="book-meta">A comprehensive guide covering the fundamental concepts, macro and micro-environmental factors, and dynamic forces shaping modern business operations. Publisher: Nex Gen Publications · ISBN: 978-81-961857-8-7</p>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-cover">
-          <div class="book-cover-inner">
-            <span class="book-icon">📑</span>
-            <div class="book-cover-title">
-              Conference Proceedings Vol. 1
-              <span>PSG CAS · Editor</span>
-            </div>
-          </div>
-        </div>
-        <div class="book-body">
-          <p class="book-type">Edited Volume</p>
-          <h3 class="book-title">International Conference Proceedings — Volume 1</h3>
-          <p class="book-author">Editor: Dr. Rajakrishnan Manivel</p>
-          <p class="book-meta">Volume 1 of the official published proceedings from the International Conference hosted by the Department of Commerce (CA), PSG College of Arts &amp; Science.</p>
-          <div class="book-links">
-            <a href="https://sites.google.com/view/psgcommerceca/proceedings?authuser=0" target="_blank" class="book-btn book-btn-primary">View Proceedings</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-cover">
-          <div class="book-cover-inner">
-            <span class="book-icon">📑</span>
-            <div class="book-cover-title">
-              Conference Proceedings Vol. 2
-              <span>PSG CAS · Editor</span>
-            </div>
-          </div>
-        </div>
-        <div class="book-body">
-          <p class="book-type">Edited Volume</p>
-          <h3 class="book-title">International Conference Proceedings — Volume 2</h3>
-          <p class="book-author">Editor: Dr. Rajakrishnan Manivel</p>
-          <p class="book-meta">Volume 2 of the official published proceedings from the International Conference hosted by the Department of Commerce (CA), PSG College of Arts &amp; Science.</p>
-          <div class="book-links">
-            <a href="https://sites.google.com/view/psgcommerceca/proceedings?authuser=0" target="_blank" class="book-btn book-btn-primary">View Proceedings</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-cover">
-          <div class="book-cover-inner">
-            <span class="book-icon">📗</span>
-            <div class="book-cover-title">
-              Rural Entrepreneurship: MSMEs
-              <span>Springer · 2025</span>
-            </div>
-          </div>
-        </div>
-        <div class="book-body">
-          <p class="book-type">Book Chapter — Springer</p>
-          <h3 class="book-title">Rural Entrepreneurship: Macro Environmental Factor Impact on the Success of MSMEs</h3>
-          <p class="book-author">Rajalakshmi G R, Rajakrishnan Manivel et al.</p>
-          <p class="book-meta">Examines how macro-environmental factors shape the success of micro, small, and medium enterprises in rural India. Part of a Springer edited volume. DOI: 10.1007/978-3-031-67890-5_83</p>
-          <div class="book-links">
-            <a href="https://link.springer.com/chapter/10.1007/978-3-031-67890-5_83" target="_blank" class="book-btn book-btn-primary">View Chapter</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="book-card reveal">
-        <div class="book-cover">
-          <div class="book-cover-inner">
-            <span class="book-icon">📙</span>
-            <div class="book-cover-title">
-              Green Infrastructure &amp; Urban Resilience
-              <span>Book Chapter · 2025</span>
-            </div>
-          </div>
-        </div>
-        <div class="book-body">
-          <p class="book-type">Book Chapter</p>
-          <h3 class="book-title">Green Infrastructure: Enhancing Environment Resilience and Sustainability</h3>
-          <p class="book-author">Dr. Rajakrishnan Manivel et al.</p>
-          <p class="book-meta">Studies the role of green infrastructure in improving urban resilience, exploring impacts and examining policy frameworks. Part of "Frameworks and Case Studies on Green Infrastructure...".</p>
-          <div class="book-links">
-            <a href="https://www.researchgate.net/publication/388556958" target="_blank" class="book-btn book-btn-primary">View on ResearchGate</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:var(--muted); font-style:italic;">+ 8 more book chapters in national &amp; international edited volumes</p>
-  </div>
-</section>
-
-<section id="funding">
-  <div class="sec-inner">
-    <div class="sec-header reveal">
-      <span class="sec-label">07</span>
-      <h2 class="sec-title">Grants &amp; <em>Funding</em></h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="awards-grid">
-      <div class="fnd-card reveal">
-        <div class="fnd-icon">💡</div>
-        <div class="aw-body">
-          <p class="fnd-year">2024 (Grant: SS-524)</p>
-          <h3 class="fnd-title">The living and working condition of rural domestic women workers in selected areas of Coimbatore district in Tamil Nadu</h3>
-          <p class="fnd-desc">Funded by: Tamilnadu State Council For Science And Technology, Chennai</p>
-        </div>
-      </div>
-      <div class="fnd-card reveal">
-        <div class="fnd-icon">📜</div>
-        <div class="aw-body">
-          <p class="fnd-year">2018 – 2019 (Grant: SS-009)</p>
-          <h3 class="fnd-title">Impact of e-governance in Coimbatore district of Tamilnadu with special reference to good governance among SC/ST people in selected rural areas</h3>
-          <p class="fnd-desc">Funded by: Tamilnadu State Council for Science and Technology, Chennai</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="patents">
-  <div class="sec-inner">
-    <div class="sec-header reveal">
-      <span class="sec-label">08</span>
-      <h2 class="sec-title">Patents &amp; <em>Inventions</em></h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="awards-grid">
-      <div class="fnd-card reveal">
-        <div class="fnd-icon">📜</div>
-        <div class="aw-body">
-          <p class="fnd-year">Published: Feb 10, 2023 · Filed: Feb 01, 2023</p>
-          <h3 class="fnd-title">ICT In Building of Teachers</h3>
-          <p class="fnd-desc">Inventors: K. Prabhu Sahai, Dr. J. Ahamed Meeran, G. Prema, Dr. R. Sangeetha, Dr. M. Rajakrishnan, Dr. E. Dhanasekar, Dr. M. Thanikaivel, Dr. Manohar Lal</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="awards">
-  <div class="sec-inner">
-    <div class="sec-header reveal">
-      <span class="sec-label">09</span>
-      <h2 class="sec-title">Awards &amp; <em>Recognition</em></h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="awards-grid">
-      <div class="aw-card reveal">
-        <div class="aw-icon">🏆</div>
-        <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">Best Teacher Award</h3>
-          <p class="aw-desc">Recognised for excellence in teaching and student engagement, Dr. N.G.P. Arts and Science College, Coimbatore.</p>
-        </div>
-      </div>
-      <div class="aw-card reveal">
-        <div class="aw-icon">🌟</div>
-        <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">Best Mentor Award</h3>
-          <p class="aw-desc">Awarded for outstanding mentorship and academic guidance to students, Dr. N.G.P. Arts and Science College, Coimbatore.</p>
-        </div>
-      </div>
-      <div class="aw-card reveal">
-        <div class="aw-icon">🎓</div>
-        <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">NPTEL Mentor Award</h3>
-          <p class="aw-desc">Awarded for mentoring students in NPTEL courses, demonstrating commitment to open and technology-enabled education.</p>
-        </div>
-      </div>
-      <div class="aw-card reveal">
-        <div class="aw-icon">🥇</div>
-        <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">Top Performing Mentor Award</h3>
-          <p class="aw-desc">Recognised as a Top Performing Mentor — all 103 mentees successfully cleared the NPTEL HRM examination (IIT Kharagpur).</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <span class="footer-copy">© 2026 Dr. Rajakrishnan Manivel · PSG College of Arts &amp; Science, Coimbatore</span>
-  <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#publications">Publications</a>
-    <a href="https://learnwithrk.blogspot.com/" target="_blank">Blog</a>
-    <a href="#">Back to Top ↑</a>
-  </div>
-</footer>
-
-<script>
-  // Mobile Menu Toggle
-  function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active-menu');
-  }
-
-  // Close menu on link click (mobile)
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 960) {
-        document.querySelector('.nav-links').classList.remove('active-menu');
-      }
-    });
-  });
-
-  // Scroll reveal animation
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 60);
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Sidebar ScrollSpy Highlighting
-  const sections = document.querySelectorAll('section');
-  const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    // Account for scrolling past the Hero
-    if (window.scrollY > window.innerHeight * 0.5) {
-      sections.forEach(sec => {
-        const secTop = sec.offsetTop;
-        if (window.scrollY >= (secTop - 250)) {
-          current = sec.getAttribute('id');
-        }
-      });
-    }
-    
-    navItems.forEach(a => {
-      a.classList.remove('active-link');
-      if (current && a.getAttribute('href') === '#' + current) {
-        a.classList.add('active-link');
-      }
-    });
-  });
-
-  // Publication filtering logic
-  function filterPubs(type, btn) {
-    document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-
-    document.querySelectorAll('.pub-card').forEach(card => {
-      if (type === 'all' || card.dataset.type === type) {
-        card.dataset.hidden = "false";
-        card.style.display = "block";
-      } else {
-        card.dataset.hidden = "true";
-        card.style.display = "none";
-      }
-    });
-  }
-
-  // --- LIVE CITATION FETCHER SCRIPT ---
-  // Connects securely to the IRINS profile and parses the live citation numbers.
-  async function fetchLiveCitations() {
-    const scopusEl = document.getElementById('scopus-count');
-    const crossrefEl = document.getElementById('crossref-count');
-    
-    // We use a safe public proxy to bypass cross-origin browser restrictions
-    const targetUrl = 'https://psgcas.irins.org/profile/207994';
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-    
-    try {
-      const response = await fetch(proxyUrl);
-      if(!response.ok) throw new Error("Network request failed");
-      const data = await response.json();
-      
-      let scopusFound = false;
-      let crossrefFound = false;
-
-      // Scan the fetched HTML code for Scopus and Crossref citation blocks
-      if (data && data.contents) {
-        // Fallback robust regex search mapping standard IRINS widget styles
-        const scopusMatch = data.contents.match(/Scopus[\s\S]{1,100}?(?:<h1[^>]*>|<i>)\s*(\d+)\s*(?:<\/i>|<\/h1>)/i);
-        if(scopusMatch) {
-          scopusEl.innerText = scopusMatch[1];
-          scopusEl.classList.remove('loading');
-          scopusFound = true;
-        }
-
-        const crossrefMatch = data.contents.match(/Crossref[\s\S]{1,100}?(?:<h1[^>]*>|<i>)\s*(\d+)\s*(?:<\/i>|<\/h1>)/i);
-        if(crossrefMatch) {
-          crossrefEl.innerText = crossrefMatch[1];
-          crossrefEl.classList.remove('loading');
-          crossrefFound = true;
-        }
-      }
-
-      // Safe fallbacks just in case the proxy drops or IRINS structure changes drastically
-      if(!scopusFound) {
-        scopusEl.innerText = "12"; 
-        scopusEl.classList.remove('loading');
-      }
-      if(!crossrefFound) {
-        crossrefEl.innerText = "9";
-        crossrefEl.classList.remove('loading');
-      }
-
-    } catch(err) {
-      console.warn("Live fetch disabled by proxy or network, using safe static fallbacks.", err);
-      scopusEl.innerText = "12";
-      crossrefEl.innerText = "9";
-      scopusEl.classList.remove('loading');
-      crossrefEl.classList.remove('loading');
-    }
-  }
-  
-  // Trigger the live fetch when the page loads
-  fetchLiveCitations();
-</script>
-</body>
-</html>
-```
+          <p class="book-meta">A comprehensive guide covering the fundamental concepts, macro and micro-environmental factors, and dynamic forces shaping modern business operations. Publisher: Nex Gen Publications · ISBN: 978-81-961857-8
