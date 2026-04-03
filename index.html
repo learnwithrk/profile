@@ -824,19 +824,19 @@
     <div class="skills-grid">
       <div class="reveal">
         <p class="skill-group-title">Research &amp; Analytics</p>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">Statistical Analysis (SPSS)</span><span class="skill-pct">92%</span></div><div class="skill-track"><div class="skill-bar" style="width:92%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">SEM — AMOS &amp; PLS</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-bar" style="width:85%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">Data Analytics</span><span class="skill-pct">82%</span></div><div class="skill-track"><div class="skill-bar" style="width:82%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">R Programming</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-bar" style="width:65%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">Academic Writing &amp; Publishing</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-bar" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Securities Market</span></div><div class="skill-track"><div class="skill-bar" style="width:92%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Fundamental and Technical Analysis</span></div><div class="skill-track"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Data Analytics</span></div><div class="skill-track"><div class="skill-bar" style="width:82%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Financial Modelling</span></div><div class="skill-track"><div class="skill-bar" style="width:65%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Academic Writing &amp; Publishing</span></div><div class="skill-track"><div class="skill-bar" style="width:95%"></div></div></div>
       </div>
       <div class="reveal">
         <p class="skill-group-title">Teaching &amp; Subject Expertise</p>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">Marketing Management</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-bar" style="width:95%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">Financial Management</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-bar" style="width:90%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">Taxation — Income Tax &amp; GST</span><span class="skill-pct">92%</span></div><div class="skill-track"><div class="skill-bar" style="width:92%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">E-Commerce &amp; Computer Applications</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-bar" style="width:88%"></div></div></div>
-        <div class="skill-item"><div class="skill-top"><span class="skill-name">Human Resource Management</span><span class="skill-pct">82%</span></div><div class="skill-track"><div class="skill-bar" style="width:82%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Marketing Management</span></div><div class="skill-track"><div class="skill-bar" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Financial Management</span></div><div class="skill-track"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Taxation — Income Tax &amp; GST</span></div><div class="skill-track"><div class="skill-bar" style="width:92%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">E-Commerce &amp; Computer Applications</span></div><div class="skill-track"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><div class="skill-top"><span class="skill-name">Computerized Accounting</span></div><div class="skill-track"><div class="skill-bar" style="width:82%"></div></div></div>
       </div>
     </div>
   </div>
@@ -1118,8 +1118,9 @@
   </div>
 </footer>
 
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
-  // Scroll reveal animation
+  // Scroll reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -1130,7 +1131,7 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Publication filtering logic
+  // Publication filter
   function filterPubs(type, btn) {
     document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
@@ -1183,7 +1184,6 @@
     // Note: RG is extremely hard to scrape client-side due to strict Cloudflare protection.
     try {
       // Just visually display a realistic fallback immediately, as fetching RG via proxy almost always fails.
-      // If you eventually use a backend, you can replace this.
       rgEl.innerText = "40+"; 
       rgEl.classList.remove('loading');
     } catch(err) {
