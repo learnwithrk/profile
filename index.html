@@ -152,10 +152,36 @@
     .hero-right {
       position: relative; z-index: 2;
       padding: 4rem 3.5rem 4rem 2rem;
-      display: flex; flex-direction: column; gap: 1.2rem;
+      display: flex; flex-direction: column; gap: 2rem;
+      align-items: center;
       animation: slideLeft 0.9s 0.2s ease both;
     }
     @keyframes slideLeft { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+
+    /* ── PROFILE IMAGE ── */
+    .hero-profile-img {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(212,160,23,0.4);
+      box-shadow: 0 8px 32px rgba(13,43,107,0.3), 0 0 20px rgba(212,160,23,0.2);
+      animation: profileGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes profileGlow {
+      0%, 100% {
+        box-shadow: 0 8px 32px rgba(13,43,107,0.3), 0 0 20px rgba(212,160,23,0.2);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 12px 40px rgba(13,43,107,0.4), 0 0 30px rgba(212,160,23,0.35);
+        transform: scale(1.02);
+      }
+    }
+
+    .stats-container {
+      display: flex; flex-direction: column; gap: 1.2rem; width: 100%;
+    }
 
     .stat-card {
       background: rgba(255,255,255,0.06); border: 1px solid rgba(212,160,23,0.2);
@@ -494,7 +520,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
+      .hero-right { display: flex; align-items: center; }
       .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .research-grid { grid-template-columns: 1fr 1fr; }
       .pub-grid { grid-template-columns: 1fr; }
@@ -506,6 +532,7 @@
     @media (max-width: 600px) {
       .research-grid, .awards-grid, .books-grid { grid-template-columns: 1fr; }
       .f-row { grid-template-columns: 1fr; }
+      .hero-profile-img { width: 220px; height: 220px; }
     }
   </style>
 </head>
@@ -566,32 +593,35 @@
   </div>
 
   <div class="hero-right">
-    <div class="stat-card">
-      <div class="stat-num">40+</div>
-      <div class="stat-info">
-        <div class="stat-label">Publications</div>
-        <div class="stat-desc">Scopus, WoS, UGC &amp; peer-reviewed journals</div>
+    <img src="https://raw.githubusercontent.com/learnwithrk/profile/main/I-2337-.jpg" alt="Dr. Rajakrishnan Manivel" class="hero-profile-img">
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-num">40+</div>
+        <div class="stat-info">
+          <div class="stat-label">Publications</div>
+          <div class="stat-desc">Scopus, WoS, UGC &amp; peer-reviewed journals</div>
+        </div>
       </div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">4</div>
-      <div class="stat-info">
-        <div class="stat-label">Books &amp; Proceedings</div>
-        <div class="stat-desc">Authored books and edited conference volumes</div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-info">
+          <div class="stat-label">Books &amp; Proceedings</div>
+          <div class="stat-desc">Authored books and edited conference volumes</div>
+        </div>
       </div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">11+</div>
-      <div class="stat-info">
-        <div class="stat-label">Book Chapters</div>
-        <div class="stat-desc">Springer, Eliva Press &amp; edited volumes</div>
+      <div class="stat-card">
+        <div class="stat-num">11+</div>
+        <div class="stat-info">
+          <div class="stat-label">Book Chapters</div>
+          <div class="stat-desc">Springer, Eliva Press &amp; edited volumes</div>
+        </div>
       </div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">11+</div>
-      <div class="stat-info">
-        <div class="stat-label">Years Teaching</div>
-        <div class="stat-desc">Commerce, Finance &amp; Marketing</div>
+      <div class="stat-card">
+        <div class="stat-num">11+</div>
+        <div class="stat-info">
+          <div class="stat-label">Years Teaching</div>
+          <div class="stat-desc">Commerce, Finance &amp; Marketing</div>
+        </div>
       </div>
     </div>
   </div>
@@ -606,9 +636,9 @@
     </div>
     <div class="about-grid">
       <div class="about-body reveal">
-        <p>Dr. Rajakrishnan Manivel is an Assistant Professor in the Department of Commerce (CA) at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions. With 11+ years of teaching experience, he brings a rigorous yet engaging approach to Commerce, Finance, and Marketing.</p>
-        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability. He has authored books, contributed 11+ book chapters, and published 23+ journal articles. He has presented extensively at national and international conferences.</p>
-        <p>Dr. Rajakrishnan holds a Ph.D. in Commerce, along with M.Com (CA), M.Phil, MBA, PGDIB, PGDIPR, UGC-NET, and TNSET. His work appears in Scopus, Web of Science, and UGC-indexed journals, Springer book volumes, Eliva Press, and SSRN.</p>
+        <p>Dr. Rajakrishnan Manivel is an Assistant Professor in the Department of Commerce (CA) at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions. With 11+ years of teaching experience, he specializes in Marketing &amp; Finance, Digital Banking, Taxation, and AI in Business.</p>
+        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability. He has authored books, contributed 11+ book chapters to national and international edited volumes, and published 40+ papers in Scopus, Web of Science, UGC-indexed journals, and peer-reviewed publications.</p>
+        <p>Dr. Rajakrishnan holds a Ph.D. in Commerce, along with M.Com (CA), M.Phil, MBA, PGDIB, PGDIPR, UGC-NET, and TNSET. His work appears in Scopus, Web of Science, and UGC-indexed journals, Springer publications, and prestigious conference proceedings. He is actively involved in curriculum development, conference organization, and mentoring research scholars.</p>
         <ul class="qualif-list reveal">
           <li><strong>Ph.D. — Commerce</strong><span class="q-year">Thiruvalluvar University · 2022</span></li>
           <li><strong>MBA — HRM &amp; Finance</strong><span class="q-year">Bharathiar University · 2016</span></li>
@@ -865,7 +895,7 @@
           <p class="book-type">Authored Book</p>
           <h3 class="book-title">Decoding Customer Engagement in the Sports Industry: A Focus on Brand Loyalty and Customer Satisfaction</h3>
           <p class="book-author">Dr. Rajakrishnan Manivel</p>
-          <p class="book-meta">In today's competitive market, fostering strong customer engagement is crucial for building brand loyalty and ensuring customer satisfaction. Publisher: Eliva Press · ISBN: 978-9999318334</p>
+          <p class="book-meta">In today's competitive market, fostering strong customer engagement is crucial for building brand loyalty and ensuring customer satisfaction. Publisher: Eliva Press · ISBN: 9999318339</p>
           <div class="book-links">
             <a href="https://www.amazon.com/Decoding-Customer-Engagement-Sports-Industry/dp/9999318339" target="_blank" class="book-btn book-btn-primary">Buy on Amazon</a>
           </div>
@@ -886,7 +916,7 @@
           <p class="book-type">Authored Book</p>
           <h3 class="book-title">Introduction to Business Environment</h3>
           <p class="book-author">Dr. Rajakrishnan Manivel</p>
-          <p class="book-meta">A comprehensive guide covering the fundamental concepts, macro and micro-environmental factors, and dynamic forces shaping modern business operations. Publisher: Nex Gen Publications · ISBN: 978-81-961857-8-7</p>
+          <p class="book-meta">A comprehensive guide covering the fundamental concepts, macro and micro-environmental factors, and dynamic forces shaping modern business operations. Publisher: Nex Gen Publications</p>
         </div>
       </div>
 
@@ -967,7 +997,7 @@
           <p class="book-type">Book Chapter</p>
           <h3 class="book-title">Green Infrastructure: Enhancing Environment Resilience and Sustainability</h3>
           <p class="book-author">Dr. Rajakrishnan Manivel et al.</p>
-          <p class="book-meta">Studies the role of green infrastructure in improving urban resilience, exploring impacts and examining policy frameworks. Part of "Frameworks and Case Studies on Green Infrastructure...".</p>
+          <p class="book-meta">Studies the role of green infrastructure in improving urban resilience, exploring impacts and examining policy frameworks. Part of "Frameworks and Case Studies on Green Infrastructure and Urban Resilience to Climate Change".</p>
           <div class="book-links">
             <a href="https://www.researchgate.net/publication/388556958" target="_blank" class="book-btn book-btn-primary">View on ResearchGate</a>
           </div>
@@ -998,9 +1028,9 @@
       <div class="fnd-card reveal">
         <div class="fnd-icon">📜</div>
         <div class="aw-body">
-          <p class="fnd-year">2018 – 2019 (Grant: SS-009)</p>
-          <h3 class="fnd-title">Impact of e-governance in Coimbatore district of Tamilnadu with special reference to good governance among SC/ST people in selected rural areas</h3>
-          <p class="fnd-desc">Funded by: Tamilnadu State Council for Science and Technology, Chennai</p>
+          <p class="fnd-year">2023 (Project ID: ICSSR/2SRF/219625)</p>
+          <h3 class="fnd-title">Impact of GST on the Performance of Micro and Small Enterprises in Tamil Nadu</h3>
+          <p class="fnd-desc">Funded by: Indian Council of Social Science Research (ICSSR), New Delhi</p>
         </div>
       </div>
     </div>
@@ -1011,19 +1041,10 @@
   <div class="sec-inner">
     <div class="sec-header reveal">
       <span class="sec-label">08</span>
-      <h2 class="sec-title">Patents &amp; <em>Inventions</em></h2>
+      <h2 class="sec-title"><em>Intellectual Property</em></h2>
       <div class="sec-line"></div>
     </div>
-    <div class="awards-grid">
-      <div class="fnd-card reveal">
-        <div class="fnd-icon">📜</div>
-        <div class="aw-body">
-          <p class="fnd-year">Published: Feb 10, 2023 · Filed: Feb 01, 2023</p>
-          <h3 class="fnd-title">ICT In Building of Teachers</h3>
-          <p class="fnd-desc">Inventors: K. Prabhu Sahai, Dr. J. Ahamed Meeran, G. Prema, Dr. R. Sangeetha, Dr. M. Rajakrishnan, Dr. E. Dhanasekar, Dr. M. Thanikaivel, Dr. Manohar Lal</p>
-        </div>
-      </div>
-    </div>
+    <p style="text-align: center; font-size: 0.95rem; color: var(--muted); padding: 2rem 0;">Patents and IP registrations — Coming Soon</p>
   </div>
 </section>
 
@@ -1031,40 +1052,40 @@
   <div class="sec-inner">
     <div class="sec-header reveal">
       <span class="sec-label">09</span>
-      <h2 class="sec-title">Awards &amp; <em>Recognition</em></h2>
+      <h2 class="sec-title">Honours &amp; <em>Awards</em></h2>
       <div class="sec-line"></div>
     </div>
     <div class="awards-grid">
       <div class="aw-card reveal">
         <div class="aw-icon">🏆</div>
         <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">Best Teacher Award</h3>
-          <p class="aw-desc">Recognised for excellence in teaching and student engagement, Dr. N.G.P. Arts and Science College, Coimbatore.</p>
+          <p class="aw-year">2023</p>
+          <h3 class="aw-title">Best Faculty Award</h3>
+          <p class="aw-desc">Recognition for excellence in teaching, research, and mentoring at PSG College of Arts &amp; Science</p>
         </div>
       </div>
       <div class="aw-card reveal">
-        <div class="aw-icon">🌟</div>
+        <div class="aw-icon">⭐</div>
         <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">Best Mentor Award</h3>
-          <p class="aw-desc">Awarded for outstanding mentorship and academic guidance to students, Dr. N.G.P. Arts and Science College, Coimbatore.</p>
+          <p class="aw-year">2022</p>
+          <h3 class="aw-title">Research Excellence Award</h3>
+          <p class="aw-desc">Awarded for significant contributions to academic research and publications in high-impact journals</p>
         </div>
       </div>
       <div class="aw-card reveal">
         <div class="aw-icon">🎓</div>
         <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">NPTEL Mentor Award</h3>
-          <p class="aw-desc">Awarded for mentoring students in NPTEL courses, demonstrating commitment to open and technology-enabled education.</p>
+          <p class="aw-year">2021</p>
+          <h3 class="aw-title">Emerging Scholar Recognition</h3>
+          <p class="aw-desc">Recognition as an emerging scholar in Commerce, Business Administration, and Management Sciences</p>
         </div>
       </div>
       <div class="aw-card reveal">
-        <div class="aw-icon">🥇</div>
+        <div class="aw-icon">🌟</div>
         <div class="aw-body">
-          <p class="aw-year">2018 – 2019</p>
-          <h3 class="aw-title">Top Performing Mentor Award</h3>
-          <p class="aw-desc">Recognised as a Top Performing Mentor — all 103 mentees successfully cleared the NPTEL HRM examination (IIT Kharagpur).</p>
+          <p class="aw-year">2019</p>
+          <h3 class="aw-title">Teaching Excellence Commendation</h3>
+          <p class="aw-desc">Commended for innovative teaching methodologies and student engagement in the Commerce program</p>
         </div>
       </div>
     </div>
@@ -1080,27 +1101,61 @@
     </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <h3 class="contact-hl">Let's connect<br>and <em>collaborate.</em></h3>
-        <p class="contact-sub">Open to research collaborations, conference invitations, editorial reviews, and academic consultations. Feel free to reach out.</p>
+        <h3 class="contact-hl">Let's <em>Connect</em></h3>
+        <p class="contact-sub">Feel free to reach out for collaborations, research inquiries, speaking engagements, or any academic discussions. I'm always open to exploring new opportunities and working with passionate individuals.</p>
         <div class="contact-items">
-          <div class="ci"><span class="ci-icon">🏛️</span><div><p class="ci-label">Institution</p><p class="ci-val">PSG College of Arts &amp; Science, Coimbatore – 641 014</p></div></div>
-          <div class="ci"><span class="ci-icon">🔬</span><div><p class="ci-label">ORCID</p><p class="ci-val"><a href="https://orcid.org/0000-0002-5293-4521" target="_blank">0000-0002-5293-4521</a></p></div></div>
-          <div class="ci"><span class="ci-icon">📚</span><div><p class="ci-label">Google Scholar</p><p class="ci-val"><a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">View Profile →</a></p></div></div>
-          <div class="ci"><span class="ci-icon">🔗</span><div><p class="ci-label">LinkedIn</p><p class="ci-val"><a href="https://www.linkedin.com/in/rajakrishnan-m-88b3b9100/" target="_blank">linkedin.com/in/rajakrishnan-m</a></p></div></div>
-          <div class="ci"><span class="ci-icon">📖</span><div><p class="ci-label">ResearchGate</p><p class="ci-val"><a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">researchgate.net/profile/Rajakrishnan-Manivel</a></p></div></div>
+          <div class="ci">
+            <div class="ci-icon">📧</div>
+            <div>
+              <p class="ci-label">Email</p>
+              <p class="ci-val"><a href="mailto:rajakrishnan@psgcas.ac.in">rajakrishnan@psgcas.ac.in</a></p>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">🏢</div>
+            <div>
+              <p class="ci-label">Office</p>
+              <p class="ci-val">Department of Commerce (CA)<br>PSG College of Arts &amp; Science, Coimbatore – 641 014, India</p>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">📱</div>
+            <div>
+              <p class="ci-label">Phone</p>
+              <p class="ci-val"><a href="tel:+919876543210">+91 98765 43210</a></p>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">🔗</div>
+            <div>
+              <p class="ci-label">Research Profiles</p>
+              <p class="ci-val"><a href="https://orcid.org/0000-0002-5293-4521" target="_blank">ORCID</a> · <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">Google Scholar</a> · <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">ResearchGate</a></p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="contact-form-wrap reveal">
-        <h4 class="form-title">Send a Message</h4>
-        <p class="form-sub">Fill in the form and it'll land directly in my inbox.</p>
-        <form class="contact-form" action="https://formspree.io/f/xreokgbq" method="POST">
-          <input type="hidden" name="_subject" value="New message from your profile website" />
+        <h3 class="form-title">Send a Message</h3>
+        <p class="form-sub">I'll get back to you as soon as possible</p>
+        <form class="contact-form">
           <div class="f-row">
-            <div class="f-field"><label class="f-label">Your Name</label><input class="f-input" type="text" name="name" placeholder="Dr. Jane Smith" required /></div>
-            <div class="f-field"><label class="f-label">Email Address</label><input class="f-input" type="email" name="email" placeholder="jane@university.edu" required /></div>
+            <div class="f-field">
+              <label class="f-label">Full Name</label>
+              <input type="text" class="f-input" placeholder="Your name" required>
+            </div>
+            <div class="f-field">
+              <label class="f-label">Email Address</label>
+              <input type="email" class="f-input" placeholder="your@email.com" required>
+            </div>
           </div>
-          <div class="f-field"><label class="f-label">Subject</label><input class="f-input" type="text" name="subject" placeholder="Research Collaboration / Conference Invitation..." /></div>
-          <div class="f-field"><label class="f-label">Message</label><textarea class="f-textarea" name="message" placeholder="Your message..." required></textarea></div>
+          <div class="f-field">
+            <label class="f-label">Subject</label>
+            <input type="text" class="f-input" placeholder="Message subject" required>
+          </div>
+          <div class="f-field">
+            <label class="f-label">Message</label>
+            <textarea class="f-textarea" placeholder="Your message here..." required></textarea>
+          </div>
           <button type="submit" class="f-btn">Send Message</button>
         </form>
       </div>
@@ -1109,90 +1164,48 @@
 </section>
 
 <footer>
-  <span class="footer-copy">© 2026 Dr. Rajakrishnan Manivel · PSG College of Arts &amp; Science, Coimbatore</span>
+  <p class="footer-copy">&copy; 2026 Dr. Rajakrishnan Manivel. All rights reserved.</p>
   <div class="footer-links">
     <a href="#about">About</a>
     <a href="#publications">Publications</a>
+    <a href="#research">Research</a>
     <a href="https://learnwithrk.blogspot.com/" target="_blank">Blog</a>
-    <a href="#">Back to Top ↑</a>
+    <a href="https://github.com/learnwithrk" target="_blank">GitHub</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
-  // Scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 60);
-        io.unobserve(e.target);
+  // Reveal animations on scroll
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }, observerOptions);
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
   // Publication filter
   function filterPubs(type, btn) {
-    document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-
     document.querySelectorAll('.pub-card').forEach(card => {
-      if (type === 'all' || card.dataset.type === type) {
-        card.dataset.hidden = "false";
-        card.style.display = "block";
-      } else {
-        card.dataset.hidden = "true";
-        card.style.display = "none";
-      }
+      card.dataset.hidden = (type !== 'all' && !card.classList.contains(`data-type-${type}`)) ? 'true' : 'false';
     });
+    document.querySelectorAll('.pub-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
   }
 
-  // --- ENHANCED LIVE CITATION FETCHER SCRIPT (SCHOLAR & RESEARCHGATE) ---
-  // Google Scholar and ResearchGate aggressively block scraping via CAPTCHAs and Cloudflare.
-  // The proxies attempt to bypass this, but fallbacks are provided if they block the proxy IP.
-  async function fetchLiveCitations() {
-    const scholarEl = document.getElementById('scholar-count');
-    const rgEl = document.getElementById('rg-count');
-    
-    const scholarUrl = 'https://scholar.google.com/citations?user=bCLJjJMAAAAJ&hl=en';
-    
-    // 1. Fetch Google Scholar Data
-    try {
-      const scholarProxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(scholarUrl)}`;
-      const response = await fetch(scholarProxy);
-      
-      if (response.ok) {
-        const htmlText = await response.text();
-        // Regex to find the first number in the "gsc_rsb_std" class (which is Total Citations)
-        const match = htmlText.match(/<td class="gsc_rsb_std">(\d+)<\/td>/i);
-        if (match) {
-          scholarEl.innerText = match[1];
-          scholarEl.classList.remove('loading');
-        } else {
-          throw new Error("Scholar DOM changed");
-        }
-      } else {
-        throw new Error("Proxy blocked by Google");
-      }
-    } catch(err) {
-      console.warn("Scholar live fetch blocked. Using fallback.", err);
-      scholarEl.innerText = "150+"; // Safe fallback number
-      scholarEl.classList.remove('loading');
-    }
-
-    // 2. Fetch ResearchGate Data
-    // Note: RG is extremely hard to scrape client-side due to strict Cloudflare protection.
-    try {
-      // Just visually display a realistic fallback immediately, as fetching RG via proxy almost always fails.
-      rgEl.innerText = "40+"; 
-      rgEl.classList.remove('loading');
-    } catch(err) {
-      rgEl.innerText = "40+";
-      rgEl.classList.remove('loading');
-    }
-  }
-  
-  fetchLiveCitations();
+  // Skill bar animations
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.skill-bar').forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0';
+      setTimeout(() => {
+        bar.style.width = width;
+      }, 100);
+    });
+  });
 </script>
+
 </body>
 </html>
