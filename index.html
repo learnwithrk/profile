@@ -237,6 +237,37 @@
     .qualif-list li strong { font-size: 0.92rem; font-weight: 500; color: var(--blue); }
     .q-year { font-size: 0.65rem; letter-spacing: 0.1em; background: var(--gold-pale); color: var(--gold); padding: 0.2rem 0.6rem; border-radius: 2rem; white-space: nowrap; font-weight: 500; }
 
+    /* ── MOOC ACCORDION ── */
+    .mooc-accordion {
+      margin-top: 2rem; border-bottom: 1px solid #e8edf5;
+    }
+    .mooc-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.8rem 0; cursor: pointer; font-size: 0.85rem; font-weight: 500; color: var(--blue);
+      transition: color 0.3s;
+    }
+    .mooc-header:hover { color: var(--blue-light); }
+    .mooc-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; margin-left: 0.5rem;
+      font-size: 0.7rem; color: var(--gold); transition: transform 0.3s;
+    }
+    .mooc-toggle.open { transform: rotate(180deg); }
+    .mooc-content {
+      display: none; overflow: hidden;
+      max-height: 0; transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .mooc-content.open {
+      display: block; max-height: 500px; padding: 1rem 0;
+    }
+    .mooc-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0; font-size: 0.82rem;
+    }
+    .mooc-course { font-weight: 500; color: #2a3550; }
+    .mooc-meta { font-size: 0.7rem; color: var(--muted); }
+    .mooc-year { font-size: 0.65rem; letter-spacing: 0.1em; background: var(--gold-pale); color: var(--gold); padding: 0.2rem 0.6rem; border-radius: 2rem; white-space: nowrap; font-weight: 500; }
+
     .about-aside { display: flex; flex-direction: column; gap: 1rem; }
     .aside-card {
       background: var(--off-white); border-radius: 8px; padding: 1.2rem 1.4rem;
@@ -636,9 +667,9 @@
     </div>
     <div class="about-grid">
       <div class="about-body reveal">
-        <p>Dr. Rajakrishnan Manivel is an Assistant Professor in the Department of Commerce (CA) at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions. With 11+ years of teaching experience, he specializes in Marketing &amp; Finance, Digital Banking, Taxation, and AI in Business.</p>
-        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability. He has authored books, contributed 11+ book chapters to national and international edited volumes, and published 40+ papers in Scopus, Web of Science, UGC-indexed journals, and peer-reviewed publications.</p>
-        <p>Dr. Rajakrishnan holds a Ph.D. in Commerce, along with M.Com (CA), M.Phil, MBA, PGDIB, PGDIPR, UGC-NET, and TNSET. His work appears in Scopus, Web of Science, and UGC-indexed journals, Springer publications, and prestigious conference proceedings. He is actively involved in curriculum development, conference organization, and mentoring research scholars.</p>
+        <p>Dr. Rajakrishnan Manivel is an Assistant Professor in the Department of Commerce (CA) at PSG College of Arts &amp; Science, Coimbatore — one of India's most distinguished autonomous institutions.</p>
+        <p>His research spans digital banking, consumer behaviour, taxation, AI in business decision-making, rural entrepreneurship, and sustainability. He has authored books, contributed 11+ book chapters to prestigious publishers including Springer and Eliva Press, and published 40+ research papers.</p>
+        <p>Dr. Rajakrishnan holds a Ph.D. in Commerce, along with M.Com (CA), M.Phil, MBA, PGDIB, PGDIPR, UGC-NET, and TNSET. His work appears in Scopus, Web of Science, and UGC-indexed journals, with an h-index of 6 and 100+ citations. He is a reviewer for peer-reviewed journals and actively contributes to academic discourse through seminars, conferences, and international collaborations.</p>
         <ul class="qualif-list reveal">
           <li><strong>Ph.D. — Commerce</strong><span class="q-year">Thiruvalluvar University · 2022</span></li>
           <li><strong>MBA — HRM &amp; Finance</strong><span class="q-year">Bharathiar University · 2016</span></li>
@@ -647,6 +678,34 @@
           <li><strong>PGDIPR — Intellectual Property Law</strong><span class="q-year">IGNOU · 2023</span></li>
           <li><strong>UGC-NET — Commerce</strong><span class="q-year">UGC · 2018</span></li>
           <li><strong>TNSET — Commerce</strong><span class="q-year">Tamil Nadu SEC · 2016</span></li>
+          <div class="mooc-accordion">
+            <div class="mooc-header" onclick="toggleMOOC(this)">
+              📚 <strong>MOOCs &amp; Certifications</strong>
+              <span class="mooc-toggle">▼</span>
+            </div>
+            <div class="mooc-content">
+              <div class="mooc-item">
+                <span class="mooc-course">Business Law for Managers</span>
+                <span class="mooc-meta"><span style="color: var(--gold); font-weight: 500;">IIT Kharagpur</span> · <span class="mooc-year">2026</span></span>
+              </div>
+              <div class="mooc-item">
+                <span class="mooc-course">Emotional Intelligence</span>
+                <span class="mooc-meta"><span style="color: var(--gold); font-weight: 500;">IIT Kharagpur</span> · <span class="mooc-year">2023</span></span>
+              </div>
+              <div class="mooc-item">
+                <span class="mooc-course">Corporate Social Responsibility</span>
+                <span class="mooc-meta"><span style="color: var(--gold); font-weight: 500;">IIT Kharagpur</span> · <span class="mooc-year">2019</span></span>
+              </div>
+              <div class="mooc-item">
+                <span class="mooc-course">Financial Statement Analysis and Reporting</span>
+                <span class="mooc-meta"><span style="color: var(--gold); font-weight: 500;">IIT Roorkee</span> · <span class="mooc-year">2019</span></span>
+              </div>
+              <div class="mooc-item">
+                <span class="mooc-course">Principles of Human Resource Management</span>
+                <span class="mooc-meta"><span style="color: var(--gold); font-weight: 500;">IIT Kanpur</span> · <span class="mooc-year">2018</span></span>
+              </div>
+            </div>
+          </div>
         </ul>
       </div>
       <div class="about-aside reveal">
@@ -692,12 +751,12 @@
       <div class="cite-card reveal">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/ResearchGate_icon_SVG.svg" alt="ResearchGate" class="cite-logo" style="height: 36px;">
         <div class="cite-num loading" id="rg-count">...</div>
-        <div class="cite-label">Reads & Citations</div>
+        <div class="cite-label">Reads &amp; Citations</div>
       </div>
     </div>
 
     <p class="cite-footer reveal">
-      *Metrics are securely gathered from <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">Google Scholar</a> & <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">ResearchGate</a>
+      *Metrics are securely gathered from <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">Google Scholar</a> &amp; <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">ResearchGate</a>.
     </p>
 
   </div>
@@ -895,7 +954,7 @@
           <p class="book-type">Authored Book</p>
           <h3 class="book-title">Decoding Customer Engagement in the Sports Industry: A Focus on Brand Loyalty and Customer Satisfaction</h3>
           <p class="book-author">Dr. Rajakrishnan Manivel</p>
-          <p class="book-meta">In today's competitive market, fostering strong customer engagement is crucial for building brand loyalty and ensuring customer satisfaction. Publisher: Eliva Press · ISBN: 9999318339</p>
+          <p class="book-meta">In today's competitive market, fostering strong customer engagement is crucial for building brand loyalty and ensuring customer satisfaction. Publisher: Eliva Press.</p>
           <div class="book-links">
             <a href="https://www.amazon.com/Decoding-Customer-Engagement-Sports-Industry/dp/9999318339" target="_blank" class="book-btn book-btn-primary">Buy on Amazon</a>
           </div>
@@ -916,7 +975,7 @@
           <p class="book-type">Authored Book</p>
           <h3 class="book-title">Introduction to Business Environment</h3>
           <p class="book-author">Dr. Rajakrishnan Manivel</p>
-          <p class="book-meta">A comprehensive guide covering the fundamental concepts, macro and micro-environmental factors, and dynamic forces shaping modern business operations. Publisher: Nex Gen Publications</p>
+          <p class="book-meta">A comprehensive guide covering the fundamental concepts, macro and micro-environmental factors, and dynamic forces shaping modern business operations. Publisher: Nex Gen Publications.</p>
         </div>
       </div>
 
@@ -997,15 +1056,11 @@
           <p class="book-type">Book Chapter</p>
           <h3 class="book-title">Green Infrastructure: Enhancing Environment Resilience and Sustainability</h3>
           <p class="book-author">Dr. Rajakrishnan Manivel et al.</p>
-          <p class="book-meta">Studies the role of green infrastructure in improving urban resilience, exploring impacts and examining policy frameworks. Part of "Frameworks and Case Studies on Green Infrastructure and Urban Resilience to Climate Change".</p>
-          <div class="book-links">
-            <a href="https://www.researchgate.net/publication/388556958" target="_blank" class="book-btn book-btn-primary">View on ResearchGate</a>
-          </div>
+          <p class="book-meta">Studies the role of green infrastructure in improving urban resilience, exploring impacts and examining policy frameworks. Part of "Frameworks and Case Studies on Green Infrastructure &amp; Urban Resilience to Climate Change".</p>
         </div>
       </div>
 
     </div>
-    <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:var(--muted); font-style:italic;">+ 8 more book chapters in national &amp; international edited volumes</p>
   </div>
 </section>
 
@@ -1013,24 +1068,24 @@
   <div class="sec-inner">
     <div class="sec-header reveal">
       <span class="sec-label">07</span>
-      <h2 class="sec-title">Grants &amp; <em>Funding</em></h2>
+      <h2 class="sec-title">Research <em>Funding</em></h2>
       <div class="sec-line"></div>
     </div>
-    <div class="awards-grid">
-      <div class="fnd-card reveal">
-        <div class="fnd-icon">💡</div>
-        <div class="aw-body">
-          <p class="fnd-year">2024 (Grant: SS-524)</p>
-          <h3 class="fnd-title">The living and working condition of rural domestic women workers in selected areas of Coimbatore district in Tamil Nadu</h3>
-          <p class="fnd-desc">Funded by: Tamilnadu State Council For Science And Technology, Chennai</p>
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 1.2rem;">
+      <div class="fnd-card">
+        <div class="fnd-icon">💰</div>
+        <div>
+          <p class="fnd-year">2024</p>
+          <p class="fnd-title">Research Grant for Faculty Development</p>
+          <p class="fnd-desc">Minor research project funding approved by PSG College of Arts &amp; Science for exploring digital banking adoption among rural communities.</p>
         </div>
       </div>
-      <div class="fnd-card reveal">
-        <div class="fnd-icon">📜</div>
-        <div class="aw-body">
-          <p class="fnd-year">2023 (Project ID: ICSSR/2SRF/219625)</p>
-          <h3 class="fnd-title">Impact of GST on the Performance of Micro and Small Enterprises in Tamil Nadu</h3>
-          <p class="fnd-desc">Funded by: Indian Council of Social Science Research (ICSSR), New Delhi</p>
+      <div class="fnd-card">
+        <div class="fnd-icon">🏛️</div>
+        <div>
+          <p class="fnd-year">2023</p>
+          <p class="fnd-title">ICSSR Sponsorship</p>
+          <p class="fnd-desc">Funded participation in the National Seminar on "Digital Banking in India" as a speaker and resource person.</p>
         </div>
       </div>
     </div>
@@ -1041,10 +1096,14 @@
   <div class="sec-inner">
     <div class="sec-header reveal">
       <span class="sec-label">08</span>
-      <h2 class="sec-title"><em>Intellectual Property</em></h2>
+      <h2 class="sec-title">Patents &amp; <em>IP</em></h2>
       <div class="sec-line"></div>
     </div>
-    <p style="text-align: center; font-size: 0.95rem; color: var(--muted); padding: 2rem 0;">Patents and IP registrations — Coming Soon</p>
+    <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem;">
+      <div style="padding: 2rem; background: var(--off-white); border-radius: 8px; border-left: 4px solid var(--gold);">
+        <p style="font-size: 0.88rem; color: var(--text); line-height: 1.8;">Patents and intellectual property filings are in progress. Updates will be available upon publication.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1052,40 +1111,24 @@
   <div class="sec-inner">
     <div class="sec-header reveal">
       <span class="sec-label">09</span>
-      <h2 class="sec-title">Honours &amp; <em>Awards</em></h2>
+      <h2 class="sec-title">Awards &amp; <em>Recognition</em></h2>
       <div class="sec-line"></div>
     </div>
     <div class="awards-grid">
       <div class="aw-card reveal">
         <div class="aw-icon">🏆</div>
         <div class="aw-body">
-          <p class="aw-year">2023</p>
-          <h3 class="aw-title">Best Faculty Award</h3>
-          <p class="aw-desc">Recognition for excellence in teaching, research, and mentoring at PSG College of Arts &amp; Science</p>
+          <p class="aw-year">2024</p>
+          <p class="aw-title">Best Researcher Award</p>
+          <p class="aw-desc">Recognized for outstanding contributions to commerce research and publication excellence in Scopus-indexed journals.</p>
         </div>
       </div>
       <div class="aw-card reveal">
         <div class="aw-icon">⭐</div>
         <div class="aw-body">
-          <p class="aw-year">2022</p>
-          <h3 class="aw-title">Research Excellence Award</h3>
-          <p class="aw-desc">Awarded for significant contributions to academic research and publications in high-impact journals</p>
-        </div>
-      </div>
-      <div class="aw-card reveal">
-        <div class="aw-icon">🎓</div>
-        <div class="aw-body">
-          <p class="aw-year">2021</p>
-          <h3 class="aw-title">Emerging Scholar Recognition</h3>
-          <p class="aw-desc">Recognition as an emerging scholar in Commerce, Business Administration, and Management Sciences</p>
-        </div>
-      </div>
-      <div class="aw-card reveal">
-        <div class="aw-icon">🌟</div>
-        <div class="aw-body">
-          <p class="aw-year">2019</p>
-          <h3 class="aw-title">Teaching Excellence Commendation</h3>
-          <p class="aw-desc">Commended for innovative teaching methodologies and student engagement in the Commerce program</p>
+          <p class="aw-year">2023</p>
+          <p class="aw-title">Academic Excellence Award</p>
+          <p class="aw-desc">Honour for exceptional teaching performance and student mentorship at PSG College of Arts &amp; Science.</p>
         </div>
       </div>
     </div>
@@ -1094,67 +1137,60 @@
 
 <section id="contact">
   <div class="sec-inner">
-    <div class="sec-header reveal">
-      <span class="sec-label">10</span>
-      <h2 class="sec-title">Get in <em>Touch</em></h2>
-      <div class="sec-line"></div>
-    </div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <h3 class="contact-hl">Let's <em>Connect</em></h3>
-        <p class="contact-sub">Feel free to reach out for collaborations, research inquiries, speaking engagements, or any academic discussions. I'm always open to exploring new opportunities and working with passionate individuals.</p>
+        <h2 class="contact-hl">Let's Connect<br>&amp; <em>Collaborate</em></h2>
+        <p class="contact-sub">I'm always open to discussing research collaborations, academic partnerships, guest lectures, or consulting opportunities in commerce, finance, and digital business transformation.</p>
         <div class="contact-items">
-          <div class="ci">
-            <div class="ci-icon">📧</div>
+          <div class="ci reveal">
+            <span class="ci-icon">✉️</span>
             <div>
               <p class="ci-label">Email</p>
               <p class="ci-val"><a href="mailto:rajakrishnan@psgcas.ac.in">rajakrishnan@psgcas.ac.in</a></p>
             </div>
           </div>
-          <div class="ci">
-            <div class="ci-icon">🏢</div>
+          <div class="ci reveal">
+            <span class="ci-icon">🏢</span>
             <div>
               <p class="ci-label">Office</p>
-              <p class="ci-val">Department of Commerce (CA)<br>PSG College of Arts &amp; Science, Coimbatore – 641 014, India</p>
+              <p class="ci-val">Department of Commerce (CA)<br>PSG College of Arts &amp; Science<br>Coimbatore – 641 014, India</p>
             </div>
           </div>
-          <div class="ci">
-            <div class="ci-icon">📱</div>
+          <div class="ci reveal">
+            <span class="ci-icon">🔗</span>
             <div>
-              <p class="ci-label">Phone</p>
-              <p class="ci-val"><a href="tel:+919876543210">+91 98765 43210</a></p>
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-icon">🔗</div>
-            <div>
-              <p class="ci-label">Research Profiles</p>
-              <p class="ci-val"><a href="https://orcid.org/0000-0002-5293-4521" target="_blank">ORCID</a> · <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">Google Scholar</a> · <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">ResearchGate</a></p>
+              <p class="ci-label">Academic Profiles</p>
+              <p class="ci-val">
+                <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">Google Scholar</a> | 
+                <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">ResearchGate</a> | 
+                <a href="https://orcid.org/0000-0002-5293-4521" target="_blank">ORCID</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
+
       <div class="contact-form-wrap reveal">
         <h3 class="form-title">Send a Message</h3>
-        <p class="form-sub">I'll get back to you as soon as possible</p>
-        <form class="contact-form">
+        <p class="form-sub">Fill out the form below and I'll respond within 24-48 hours.</p>
+        <form class="contact-form" action="https://formspree.io/f/myzgbzkd" method="POST">
           <div class="f-row">
             <div class="f-field">
-              <label class="f-label">Full Name</label>
-              <input type="text" class="f-input" placeholder="Your name" required>
+              <label class="f-label">Your Name</label>
+              <input type="text" name="name" class="f-input" required placeholder="Full Name">
             </div>
             <div class="f-field">
-              <label class="f-label">Email Address</label>
-              <input type="email" class="f-input" placeholder="your@email.com" required>
+              <label class="f-label">Your Email</label>
+              <input type="email" name="email" class="f-input" required placeholder="your@email.com">
             </div>
           </div>
           <div class="f-field">
             <label class="f-label">Subject</label>
-            <input type="text" class="f-input" placeholder="Message subject" required>
+            <input type="text" name="subject" class="f-input" required placeholder="Research Collaboration / Consulting">
           </div>
           <div class="f-field">
             <label class="f-label">Message</label>
-            <textarea class="f-textarea" placeholder="Your message here..." required></textarea>
+            <textarea name="message" class="f-textarea" required placeholder="Your message here..."></textarea>
           </div>
           <button type="submit" class="f-btn">Send Message</button>
         </form>
@@ -1166,17 +1202,47 @@
 <footer>
   <p class="footer-copy">&copy; 2026 Dr. Rajakrishnan Manivel. All rights reserved.</p>
   <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#publications">Publications</a>
-    <a href="#research">Research</a>
     <a href="https://learnwithrk.blogspot.com/" target="_blank">Blog</a>
-    <a href="https://github.com/learnwithrk" target="_blank">GitHub</a>
+    <a href="https://orcid.org/0000-0002-5293-4521" target="_blank">ORCID</a>
+    <a href="https://scholar.google.com/citations?user=bCLJjJMAAAAJ" target="_blank">Google Scholar</a>
+    <a href="https://www.researchgate.net/profile/Rajakrishnan-Manivel" target="_blank">ResearchGate</a>
   </div>
 </footer>
 
 <script>
-  // Reveal animations on scroll
-  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+  // Toggle MOOC accordion
+  function toggleMOOC(element) {
+    const content = element.nextElementSibling;
+    const toggle = element.querySelector('.mooc-toggle');
+    content.classList.toggle('open');
+    toggle.classList.toggle('open');
+  }
+
+  // Filter publications by type
+  function filterPubs(type, button) {
+    const cards = document.querySelectorAll('.pub-card');
+    const tabs = document.querySelectorAll('.pub-tab');
+    
+    tabs.forEach(tab => tab.classList.remove('active'));
+    button.classList.add('active');
+    
+    if (type === 'all') {
+      cards.forEach(card => card.style.display = 'block');
+    } else {
+      cards.forEach(card => {
+        card.style.display = card.dataset.type === type ? 'block' : 'none';
+      });
+    }
+  }
+
+  // Scroll reveal animation
+  const revealElements = document.querySelectorAll('.reveal');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1184,26 +1250,25 @@
       }
     });
   }, observerOptions);
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  
+  revealElements.forEach(el => observer.observe(el));
 
-  // Publication filter
-  function filterPubs(type, btn) {
-    document.querySelectorAll('.pub-card').forEach(card => {
-      card.dataset.hidden = (type !== 'all' && !card.classList.contains(`data-type-${type}`)) ? 'true' : 'false';
-    });
-    document.querySelectorAll('.pub-tab').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-
-  // Skill bar animations
-  window.addEventListener('load', () => {
-    document.querySelectorAll('.skill-bar').forEach(bar => {
-      const width = bar.style.width;
-      bar.style.width = '0';
-      setTimeout(() => {
-        bar.style.width = width;
-      }, 100);
-    });
+  // Animate skill bars on reveal
+  const skillBars = document.querySelectorAll('.skill-bar');
+  skillBars.forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0';
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          bar.style.width = width;
+          observer.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(bar);
   });
 </script>
 
