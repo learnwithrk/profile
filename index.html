@@ -550,7 +550,9 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
+      /* Display photo on mobile devices */
+      .hero-right { display: flex; padding: 0 2rem 4rem; align-items: center; justify-content: center; }
+      .hero-left { padding: 4rem 2rem 2rem; }
       .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .research-grid { grid-template-columns: 1fr 1fr; }
       .pub-grid { grid-template-columns: 1fr; }
@@ -1083,7 +1085,7 @@
         <div class="aw-body">
           <p class="fnd-year">2024 – 2025 (Grant: PSGCAS/IRSG/2024-2025/Commerce/048)</p>
           <h3 class="fnd-title">Socio-economic and working conditions of women workers in the unorganized sector in Selected areas of Coimbatore district – An empirical study</h3>
-          <p class="fnd-desc">Funded by: Institutional Research Seed Grant (IRSG) – 2024-2025, PSG College of Arts &amp; Science</p>
+          <p class="fnd-desc">Funded by: Institutional Research Seed Grant (IRSG) – 2024-2025, PSG College of Arts &amp; Science.</p>
         </div>
       </div>
       <div class="fnd-card reveal">
